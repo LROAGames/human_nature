@@ -19,11 +19,20 @@ if(x<0) x=0
 if(hp<=0) game_restart()
 if(a>0) a-=1
 coldDown-=1
-if(mouse_check_button(mb_right)&&coldDown<=0){
+timer-=1
+if(mouse_check_button(mb_left)&&coldDown<=0){
 	with(instance_create_depth(x,y,-1,obj_bullet)){
 		speed=16
 		direction=point_direction(x,y,mouse_x,mouse_y)
 		image_angle=direction
 	}
 	coldDown=30
+}
+if(mouse_check_button(mb_right)&&timer<=0){
+	with(instance_create_depth(x,y,-1,obj_pierce)){
+		speed=16
+		direction=point_direction(x,y,mouse_x,mouse_y)
+		image_angle=direction
+	}
+	timer=300
 }

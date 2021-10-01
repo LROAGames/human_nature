@@ -4,3 +4,4 @@ spd=4
 coldDown=0
 hp=10
 a=0
+timer=0
