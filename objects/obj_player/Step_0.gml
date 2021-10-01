@@ -1,15 +1,15 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码
-if(keyboard_check(ord("W"))){
+if(keyboard_check(ord("W"))||keyboard_check(vk_up)){
 	y-=spd
 }
-if(keyboard_check(ord("S"))){
+if(keyboard_check(ord("S"))||keyboard_check(vk_down)){
 	y+=spd
 }
-if(keyboard_check(ord("A"))){
+if(keyboard_check(ord("A"))||keyboard_check(vk_left)){
 	x-=spd
 }
-if(keyboard_check(ord("D"))){
+if(keyboard_check(ord("D"))||keyboard_check(vk_right)){
 	x+=spd
 }
 if(y>room_height) y=room_height
