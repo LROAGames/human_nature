@@ -18,8 +18,8 @@ if(x>room_width) x=room_width
 if(x<0) x=0
 if(hp<=0) game_restart()
 if(a>0) a-=1
-if(keyboard_check_pressed(ord("Z"))){
-	with(instance_create_depth(x,y,-1,obj_bullet)){
+if(keyboard_check_pressed(ord("Z"))||mouse_check_button_pressed(mb_left)){
+	with(instance_create_depth(x,y,1,obj_bullet)){
 		speed=16
 		direction=point_direction(x,y,mouse_x,mouse_y)
 		image_angle=direction

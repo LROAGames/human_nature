@@ -2,20 +2,20 @@
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
-  "origin": 4,
+  "origin": 9,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 8,
-  "bbox_right": 23,
-  "bbox_top": 7,
-  "bbox_bottom": 23,
+  "bbox_left": 95,
+  "bbox_right": 165,
+  "bbox_top": 90,
+  "bbox_bottom": 161,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 32,
-  "height": 32,
+  "width": 256,
+  "height": 256,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"61490739-cff6-4a10-a33b-43d102f5110b","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"61490739-cff6-4a10-a33b-43d102f5110b","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"LayerId":{"name":"6572e250-9645-401d-add0-4b1681d6d65b","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_enemyBall","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","name":"61490739-cff6-4a10-a33b-43d102f5110b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"203642e6-a635-4630-abce-0bb4c1d80018","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"203642e6-a635-4630-abce-0bb4c1d80018","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"LayerId":{"name":"278e1af5-34b1-43e1-b29f-a095c8ab128e","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_enemyBall","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","name":"203642e6-a635-4630-abce-0bb4c1d80018","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_enemyBall","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b6ac7ba6-f1c8-4baa-a0b2-bf3e0cf48474","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"61490739-cff6-4a10-a33b-43d102f5110b","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"236f6706-6860-48a2-99e4-9b923468622b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"203642e6-a635-4630-abce-0bb4c1d80018","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -54,8 +54,8 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 16,
-    "yorigin": 16,
+    "xorigin": 132,
+    "yorigin": 125,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_enemyBall","path":"sprites/spr_enemyBall/spr_enemyBall.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"6572e250-9645-401d-add0-4b1681d6d65b","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"278e1af5-34b1-43e1-b29f-a095c8ab128e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "精灵",
