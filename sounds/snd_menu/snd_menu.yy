@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_start.ogg",
+  "soundFile": "snd_menu.ogg",
   "duration": 17.6953621,
   "parent": {
     "name": "声音",
     "path": "folders/声音.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_start",
+  "name": "snd_menu",
   "tags": [],
   "resourceType": "GMSound",
 }
