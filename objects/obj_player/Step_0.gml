@@ -12,6 +12,18 @@ if(keyboard_check(ord("A"))){
 if(keyboard_check(ord("D"))){
 	x+=spd
 }
+if(keyboard_check(vk_up)){
+	y-=spd
+}
+if(keyboard_check(vk_down)){
+	y+=spd
+}
+if(keyboard_check(vk_left)){
+	x-=spd
+}
+if(keyboard_check(vk_right)){
+	x+=spd
+}
 if(y>room_height) y=room_height
 if(y<0) y=0
 if(x>room_width) x=room_width
