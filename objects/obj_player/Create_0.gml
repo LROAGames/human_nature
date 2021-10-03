@@ -2,6 +2,7 @@
 // 你可以在此编辑器中写入代码
 spd=4
 coldDown=0
-hp=10
+hp=100
 a=0
+b=0
 timer=0
