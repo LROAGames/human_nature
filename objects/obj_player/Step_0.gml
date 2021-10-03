@@ -31,6 +31,7 @@ if(x<0) x=0
 if(hp<=0) game_restart()
 if(a>0) a-=1
 if(b>0) b-=1
+if(coldDown>0) coldDown-=1
 if(hp>100) hp=100
 if(b=0) spd=4
 if(keyboard_check_pressed(ord("Z"))||mouse_check_button_pressed(mb_left)){
@@ -39,4 +40,8 @@ if(keyboard_check_pressed(ord("Z"))||mouse_check_button_pressed(mb_left)){
 		direction=point_direction(x,y,mouse_x,mouse_y)
 		image_angle=direction
 	}
+}
+if((keyboard_check_pressed(ord("X"))||mouse_check_button_pressed(mb_right))&&coldDown<=0){
+	for(var i=0;i<100;i+=1) instance_create_depth(x,y,0,obj_shot)
+	coldDown=900
 }

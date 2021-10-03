@@ -6,7 +6,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":1,},
     {"id":{"name":"spr_flower","path":"sprites/spr_flower/spr_flower.yy",},"order":9,},
     {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"order":4,},
-    {"id":{"name":"obj_pierce","path":"objects/obj_pierce/obj_pierce.yy",},"order":5,},
+    {"id":{"name":"obj_shot","path":"objects/obj_shot/obj_shot.yy",},"order":5,},
     {"id":{"name":"spr_button","path":"sprites/spr_button/spr_button.yy",},"order":3,},
     {"id":{"name":"spr_redFlower","path":"sprites/spr_redFlower/spr_redFlower.yy",},"order":12,},
     {"id":{"name":"room_game","path":"rooms/room_game/room_game.yy",},"order":1,},

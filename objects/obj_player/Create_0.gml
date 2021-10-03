@@ -5,4 +5,3 @@ coldDown=0
 hp=100
 a=0
 b=0
-timer=0
