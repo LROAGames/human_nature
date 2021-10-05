@@ -27,6 +27,8 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"parent":{"name":"obj_enemyBallBoss","path":"objects/obj_enemyBallBoss/obj_enemyBallBoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_shot","path":"objects/obj_shot/obj_shot.yy",},"parent":{"name":"obj_enemyBallBoss","path":"objects/obj_enemyBallBoss/obj_enemyBallBoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_enemyBallBoss","path":"objects/obj_enemyBallBoss/obj_enemyBallBoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_redFlower","path":"objects/obj_redFlower/obj_redFlower.yy",},"parent":{"name":"obj_enemyBallBoss","path":"objects/obj_enemyBallBoss/obj_enemyBallBoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_yellowFlower","path":"objects/obj_yellowFlower/obj_yellowFlower.yy",},"parent":{"name":"obj_enemyBallBoss","path":"objects/obj_enemyBallBoss/obj_enemyBallBoss.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
