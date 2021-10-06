@@ -1,8 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 if(hp<=0){
+	hp=0
+	instance_create_depth(obj_player.x,obj_player.y,-100,obj_findExit)
+	obj_enemyBall.speed=4
+	obj_game.a=2
 	instance_destroy()
-	room_goto(room_game2)
 }
 if(a>0){
 	a-=1
