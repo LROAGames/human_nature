@@ -4,7 +4,7 @@ if(obj_pause.stop=0){
 	if(hp<=0){
 		hp=0
 		instance_create_depth(obj_player.x,obj_player.y,-100,obj_findExit)
-		for(var i=0;i<1000;i+=1){
+		for(var i=0;i<100;i+=1){
 			instance_create_depth(irandom(room_width),irandom(room_height),2,obj_speedEnemyBall)
 		}
 		obj_game.a=2
