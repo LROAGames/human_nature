@@ -1,8 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(obj_pause.stop=0){
-	if(c=0){
-		hp-=30
-		c=60
-	}
+if(keyboard_check_pressed(ord("P"))){
+	if(stop=0) stop=1
+	else stop=0
 }
