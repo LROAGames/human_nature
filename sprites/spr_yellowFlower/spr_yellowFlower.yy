@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/yellowFlower/yellowFlower.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/yellowFlower/yellowFlower.yy",},"LayerId":{"name":"5b768ad4-47d8-4f46-bdf9-319c04a2aee5","path":"sprites/yellowFlower/yellowFlower.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"yellowFlower","path":"sprites/yellowFlower/yellowFlower.yy",},"resourceVersion":"1.0","name":"f6219c05-84be-4529-97ca-3a932fd414f1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},"LayerId":{"name":"5b768ad4-47d8-4f46-bdf9-319c04a2aee5","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_yellowFlower","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},"resourceVersion":"1.0","name":"f6219c05-84be-4529-97ca-3a932fd414f1","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"yellowFlower","path":"sprites/yellowFlower/yellowFlower.yy",},
+    "spriteId": {"name":"spr_yellowFlower","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5448c30a-3d81-4a03-83d3-9f663cc0d197","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/yellowFlower/yellowFlower.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5448c30a-3d81-4a03-83d3-9f663cc0d197","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f6219c05-84be-4529-97ca-3a932fd414f1","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 41,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"yellowFlower","path":"sprites/yellowFlower/yellowFlower.yy",},
+    "parent": {"name":"spr_yellowFlower","path":"sprites/spr_yellowFlower/spr_yellowFlower.yy",},
     "resourceVersion": "1.3",
-    "name": "yellowFlower",
+    "name": "spr_yellowFlower",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -72,7 +72,7 @@
     "path": "folders/精灵.yy",
   },
   "resourceVersion": "1.0",
-  "name": "yellowFlower",
+  "name": "spr_yellowFlower",
   "tags": [],
   "resourceType": "GMSprite",
 }

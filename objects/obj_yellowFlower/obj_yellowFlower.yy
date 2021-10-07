@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "yellowFlower",
-    "path": "sprites/yellowFlower/yellowFlower.yy",
+    "name": "spr_yellowFlower",
+    "path": "sprites/spr_yellowFlower/spr_yellowFlower.yy",
   },
   "solid": false,
   "visible": true,

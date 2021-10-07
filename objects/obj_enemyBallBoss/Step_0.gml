@@ -20,7 +20,7 @@ if(obj_pause.stop=0){
 	else{
 		a=0
 		speed=1
-		if(alarm[0]<90||alarm>1050){
+		if(alarm[0]<90||alarm[0]>1050){
 			direction+=6
 			image_angle = direction
 		}
