@@ -10,7 +10,7 @@ if(obj_pause.stop=0){
 		else{
 			speed=0
 			direction = 0
-			image_angle = direction	
+			image_angle = direction
 		}
 	}
 }
