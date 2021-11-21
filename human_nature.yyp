@@ -23,6 +23,7 @@
     {"id":{"name":"spr_findExit","path":"sprites/spr_findExit/spr_findExit.yy",},"order":26,},
     {"id":{"name":"spr_button","path":"sprites/spr_button/spr_button.yy",},"order":3,},
     {"id":{"name":"spr_redFlower","path":"sprites/spr_redFlower/spr_redFlower.yy",},"order":12,},
+    {"id":{"name":"fnt_chs_zipx","path":"fonts/fnt_chs_zipx/fnt_chs_zipx.yy",},"order":0,},
     {"id":{"name":"room_game","path":"rooms/room_game/room_game.yy",},"order":1,},
     {"id":{"name":"spr_bubble","path":"sprites/spr_bubble/spr_bubble.yy",},"order":32,},
     {"id":{"name":"spr_smallGrass","path":"sprites/spr_smallGrass/spr_smallGrass.yy",},"order":13,},
