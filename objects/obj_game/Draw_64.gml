@@ -10,5 +10,5 @@ draw_text(10,70,"分数:")
 draw_text(70,70,score)
 if(a=1){
 	draw_text(713,40,"BossHP:")
-	draw_text(793,40,obj_enemyBallBoss.hp)
+	draw_text(803,40,obj_enemyBallBoss.hp)
 }
