@@ -37,6 +37,7 @@ if(obj_pause.stop=0){
 	if(e>0) e-=1
 	if(f>0) f-=1
 	if(g>0) g-=1
+	if(m>0) m-=1
 	if(coldDown>0) coldDown-=1
 	if(hp>100) hp=100
 	if(b=0) spd=4
