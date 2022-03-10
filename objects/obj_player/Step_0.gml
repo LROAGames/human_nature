@@ -44,22 +44,28 @@ if(obj_pause.stop=0){
 	if(mouse_check_button(mb_left)){
 		instance_create_depth(x,y,-5,obj_savePower)
 		h+=1
-		if(h>15){
-			p+=1
+		if(h>60){
+			p=1
 			h=0
 		}
-		if(p>20) p=20
 	}
 	if(mouse_check_button_released(mb_left)){
-		for(var i=0;i<p;i+=1){
-			with(instance_create_depth(x,y,0,obj_bullet)){
+		for(var i=0;i<p;i++){
+			with(instance_create_depth(x,y,0,obj_shot)){
 				speed=16
-				direction=point_direction(x,y,mouse_x,mouse_y)-15+irandom(30)
+				direction=point_direction(x,y,mouse_x,mouse_y)
 				image_angle=direction
 			}
 		}
 		h=0
-		p=1
+		p=0
+	}
+	if(mouse_check_button_pressed(mb_left)){
+		with(instance_create_depth(x,y,0,obj_bullet)){
+			speed=16
+			direction=point_direction(x,y,mouse_x,mouse_y)
+			image_angle=direction
+		}
 	}
 	if((keyboard_check_pressed(ord("X"))||mouse_check_button_pressed(mb_right))&&coldDown<=0){
 		for(var i=0;i<200;i+=1) instance_create_depth(x,y,0,obj_shot)
