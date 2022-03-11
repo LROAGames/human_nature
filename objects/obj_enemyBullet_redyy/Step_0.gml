@@ -5,4 +5,5 @@ if(obj_pause.stop==0){
 }
 else{
 	speed=0
+	alarm[0]+=1
 }

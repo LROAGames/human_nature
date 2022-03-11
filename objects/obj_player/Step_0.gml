@@ -44,7 +44,7 @@ if(obj_pause.stop=0){
 	if(mouse_check_button(mb_left)){
 		instance_create_depth(x,y,-5,obj_savePower)
 		h+=1
-		if(h>180){
+		if(h>120){
 			p=1
 			h=0
 		}

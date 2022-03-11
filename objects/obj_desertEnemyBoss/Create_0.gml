@@ -3,6 +3,6 @@
 a=0
 hp=1200
 speed=2
-alarm[0]=1
-alarm[1]=1
+alarm[0]=1000
+alarm[1]=1000
 obj_desertEnemy.flag=true
