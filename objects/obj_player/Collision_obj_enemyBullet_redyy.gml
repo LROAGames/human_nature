@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-alarm[0]=1000
-alarm[1]=1000
-hp=1000
-speed=1
-a=0
+if(obj_pause.stop=0){
+	if(m==0){
+		hp-=5
+		m=60
+	}
+}
