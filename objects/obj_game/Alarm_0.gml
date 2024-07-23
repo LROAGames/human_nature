@@ -2,5 +2,9 @@
 // 你可以在此编辑器中写入代码
 if(obj_pause.stop=0){
 	alarm[0]=25
-	instance_create_depth(irandom(room_width),irandom(room_height),2,obj_enemyBall)
+	var xx=irandom(room_width)
+	var yy=irandom(room_height)
+	if((xx<obj_player.x-300||xx>obj_player.x+300)&&(yy<obj_player.y-300||yy>obj_player.y+300)){
+		instance_create_depth(xx,yy,2,obj_enemyBall)
+	}
 }

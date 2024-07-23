@@ -10,8 +10,8 @@ if(obj_pause.stop=0){
 	}
 	else o2-=1
 	if(o2>3600) o2=3600
-	if(score>=300&&a=0){
-		instance_create_depth(obj_player.x+500,obj_player.y+500,-2,obj_enemyBallBoss)
+	if(score>=100&&a=0){
+		instance_create_depth(obj_player.x+500,obj_player.y+500,-2,obj_seaEnemyBoss)
 		a=1
 	}
 }

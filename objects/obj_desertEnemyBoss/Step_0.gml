@@ -1,6 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 if(obj_pause.stop=0){
+	depth=-y
+	if(distance_to_point(obj_player.x,obj_player.y)<150){
+		if(obj_player.c==0){
+			obj_player.hp-=20
+			obj_player.c=60
+		}
+	}
 	if(hp<=0){
 		hp=0
 		for(var i=0;i<40;i+=1){

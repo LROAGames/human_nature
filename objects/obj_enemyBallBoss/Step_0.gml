@@ -1,6 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
 if(obj_pause.stop=0){
+	depth=-y
+	if(distance_to_point(obj_player.x,obj_player.y)<150){
+		if(obj_player.c==0){
+			obj_player.hp-=30
+			obj_player.c=60
+		}
+	}
+	if(distance_to_object(obj_redFlower)<150){
+		hp+=20
+		with(obj_redFlower){
+			instance_destroy()
+		}
+	}
+	if(distance_to_object(obj_yellowFlower)<150){
+		a=120
+		with(obj_yellowFlower){
+			instance_destroy()
+		}
+	}
+	
 	if(hp<=0){
 		hp=0
 		instance_create_depth(obj_player.x,obj_player.y,-100,obj_findExit)

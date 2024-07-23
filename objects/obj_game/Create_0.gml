@@ -5,9 +5,9 @@ score=0
 alarm[0]=1
 alarm[1]=1
 audio_stop_all()
-audio_play_sound(snd_bgm,0,100000000)
+audio_play_sound(snd_bgm,0,999999999)
 for(var i=0;i<5000;i+=1){
-	instance_create_depth(irandom(room_width),irandom(room_height),1,obj_tree)
+	instance_create_depth(irandom(room_width-500)+250,irandom(room_height-500)+250,1,obj_tree)
 }
 for(var i=0;i<30;i+=1){
 	instance_create_depth(irandom(room_width),irandom(room_height),1,obj_redFlower)
