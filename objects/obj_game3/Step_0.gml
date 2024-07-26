@@ -14,7 +14,11 @@ if(obj_pause.stop=0){
 		instance_create_depth(obj_player.x+500,obj_player.y+500,-2,obj_seaEnemyBoss)
 		a=1
 	}
+	if(a!=2){
+		alarm[1]=600
+	}
 }
 else{
 	alarm[0]+=1
+	alarm[1]+=1
 }

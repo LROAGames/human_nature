@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"spr_player",
-    "path":"sprites/spr_player/spr_player.yy",
+    "name":"spr_player_cowboy",
+    "path":"sprites/spr_player_cowboy/spr_player_cowboy.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -3,13 +3,27 @@ if(obj_pause.stop==0){
 	depth=-y
 	speed=2
 	image_angle = direction
-	if(distance_to_point(obj_player.x,obj_player.y)<30){
-		if(obj_player.a==0){
-			obj_player.hp-=10
-			obj_player.a=60
+	if(obj_chooseRole.role=="ninja"){
+		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<30){
+			if(obj_player.a==0){
+				obj_player.hp-=10
+				obj_player.a=60
+			}
+		}
+	}
+	else{
+		if(distance_to_point(obj_player.x,obj_player.y)<30){
+			if(obj_player.a==0){
+				obj_player.hp-=10
+				obj_player.a=60
+			}
 		}
 	}
 	if(room==room_game3){
+		if(obj_game3.a==2){
+			x=obj_game3.xx
+			y=obj_game3.yy
+		}
 		if(instance_exists(obj_seaEnemyBoss)){
 			if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<100){
 				obj_seaEnemyBoss.hp+=10
@@ -44,5 +58,6 @@ if(obj_pause.stop==0){
 }
 else{
 	alarm[0]+=1
+	alarm[1]+=1
 	speed=0
 }

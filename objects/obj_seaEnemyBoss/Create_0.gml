@@ -11,6 +11,8 @@ alarm[1]=300
 alarm[2]=1200
 alarm[3]=900
 flag=true
+a=0
+b=0
 
 
 

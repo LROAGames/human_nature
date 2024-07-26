@@ -2,27 +2,49 @@
 // You can write your code in this editor
 if(obj_pause.stop=0){
 	depth=-y
-	if(hp<=0){
+	if(a>0) a-=1
+	if(b>0) b-=1
+	if(hp<=0||!flag){
+		hp=0
+		image_blend=c_red
 		if(flag){
-			alarm[4]=300
+			alarm[4]=540
 			flag=false
 		}
-		direction+=3
+		direction+=2
 		image_angle=direction
-		image_alpha-=0.0033
+		image_alpha-=0.0016
+		with(instance_create_depth(x,y,0,obj_enemyBullet_redyy)){
+			speed=6
+			direction=other.direction
+			image_angle=direction
+		}
 		if(alarm[4]==0){
 			obj_game3.a=2
+			obj_game3.xx=x
+			obj_game3.yy=y
+			obj_game3.alarm[1]=60
 			instance_destroy()
 		}
 	}
-	else{
+	else if(flag){
 		image_angle=direction
-		if(distance_to_point(obj_player.x,obj_player.y)<10){
-			if(obj_player.n==0){
-				obj_player.hp-=25
-				obj_player.n=60
+		if(obj_chooseRole.role=="ninja"){
+		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<10){
+			if(obj_player.g==0){
+				obj_player.hp-=10
+				obj_player.g=60
 			}
 		}
+	}
+	else{
+		if(distance_to_point(obj_player.x,obj_player.y)<10){
+			if(obj_player.g==0){
+				obj_player.hp-=10
+				obj_player.g=60
+			}
+		}
+	}
 		if(720<alarm[3]){
 			skillDirection=point_direction(x,y,obj_player.x,obj_player.y)
 		}
@@ -114,6 +136,7 @@ if(obj_pause.stop=0){
 }
 else{
 	speed=0
+	alarm[4]+=1
 	alarm[3]+=1
 	alarm[2]+=1
 	alarm[1]+=1
