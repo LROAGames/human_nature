@@ -1,4 +1,12 @@
-/// @description Insert description here
-// You can write your code in this editor
-direction=point_direction(x,y,mouse_x,mouse_y)-50+irandom(100)
-image_angle=direction
+/// @description 在此处插入描述 
+// 你可以在此编辑器中写入代码 
+damage=5
+if(obj_chooseRole.role=="ninja"){
+	player=obj_ninja
+}
+else if(obj_chooseRole.role=="cowboy"){
+	player=obj_cowboy
+}
+else if(obj_chooseRole.role=="mage"){
+	player=obj_mage
+}

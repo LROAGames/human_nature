@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":71.89504,
+  "duration":71.890045,
   "name":"snd_rainy",
   "parent":{
     "name":"声音",

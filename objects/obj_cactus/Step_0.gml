@@ -2,10 +2,17 @@
 // You can write your code in this editor
 if(obj_pause.stop=0){
 	depth=-y
+	if(obj_chooseRole.role=="ninja"){
+		if(distance_to_object(obj_knife)<30&&obj_ninja.angry==1&&obj_ninja.energy>=3&&obj_knife.attackTime>0){
+			obj_ninja.energy-=1
+			obj_knife.attackTime=30
+			instance_destroy()
+		}
+	}
 	if(distance_to_object(obj_lake)<200){
 		instance_destroy()
 	}
-	if(obj_game2.a=1){
+	if(obj_mapDesert.a=1){
 		if(obj_desertEnemyBoss.a>0){
 			speed=4
 			direction = point_direction(x,y,obj_desertEnemyBoss.x,obj_desertEnemyBoss.y)+80

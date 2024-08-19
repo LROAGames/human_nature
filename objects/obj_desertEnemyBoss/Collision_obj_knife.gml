@@ -2,7 +2,7 @@
 // 你可以在此编辑器中写入代码 
 if(obj_knife.attackTime>0){
 	if(b==0){
-		hp-=5
+		hp-=8
 		b=6
 	}
 }

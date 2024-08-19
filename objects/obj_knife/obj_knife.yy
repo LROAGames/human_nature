@@ -13,7 +13,7 @@
     "path":"folders/物体.yy",
   },
   "parentObjectId":null,
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -34,9 +34,6 @@
     "name":"spr_knife",
     "path":"sprites/spr_knife/spr_knife.yy",
   },
-  "spriteMaskId":{
-    "name":"spr_knife",
-    "path":"sprites/spr_knife/spr_knife.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

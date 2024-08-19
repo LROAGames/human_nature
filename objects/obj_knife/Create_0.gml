@@ -2,3 +2,4 @@
 // 你可以在此编辑器中写入代码
 attackTime=0
 flag=0
+damage=10

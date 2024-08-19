@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":88.02772,
+  "duration":88.02272,
   "name":"snd_bgm",
   "parent":{
     "name":"声音",

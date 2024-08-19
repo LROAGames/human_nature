@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+player=obj_chooseRole.player
 if(obj_pause.stop=0){
 	depth=-y
-	if(distance_to_point(obj_player.x,obj_player.y)<70){
-		obj_player.hp-=0.5
+	if(distance_to_point(player.x,player.y)<70){
+		player.hp-=0.5
 	}
 	if(x<room_width and a) x+=5
 	if(x>=room_width) a=0

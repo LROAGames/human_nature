@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":124.2598,
+  "duration":124.25481,
   "name":"snd_sunny",
   "parent":{
     "name":"声音",

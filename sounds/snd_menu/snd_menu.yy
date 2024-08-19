@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":17.695362,
+  "duration":17.690363,
   "name":"snd_menu",
   "parent":{
     "name":"声音",
