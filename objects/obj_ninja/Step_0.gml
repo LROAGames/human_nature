@@ -80,6 +80,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
+			if(p>0) p-=1
 			if(energy<100){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){

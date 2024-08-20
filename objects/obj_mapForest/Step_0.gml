@@ -8,6 +8,7 @@ if(obj_pause.stop=0){
 	}
 }
 else{
-	alarm[1]+=1
 	alarm[0]+=1
+	alarm[1]+=1
+	alarm[2]+=1
 }

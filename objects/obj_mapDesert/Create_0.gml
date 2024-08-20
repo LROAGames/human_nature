@@ -3,6 +3,7 @@
 player=obj_chooseRole.player
 alarm[0]=1
 alarm[1]=1
+alarm[2]=1
 score=0
 a=0
 audio_stop_all()

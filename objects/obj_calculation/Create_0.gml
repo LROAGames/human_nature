@@ -4,3 +4,5 @@ randomise()
 bulletDamage=3
 knifeDamage=10
 shotDamage=5
+darkHoleDamage=10
+bigKnifeDamage=30

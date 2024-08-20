@@ -2,6 +2,7 @@
 // You can write your code in this editor
 player=obj_chooseRole.player
 alarm[0]=1
+alarm[2]=1
 score=0
 o2=3600
 a=0

@@ -1,0 +1,10 @@
+/// @description 在此处插入描述 
+// 你可以在此编辑器中写入代码 
+if(obj_pause.stop=0){
+	alarm[2]=3600
+	var xx=0//irandom(room_width)
+	var yy=0//irandom(room_height)
+	if((xx<player.x-300||xx>player.x+300)&&(yy<player.y-300||yy>player.y+300)){
+		instance_create_depth(xx,yy,2,obj_strongEnemyBall)
+	}
+}

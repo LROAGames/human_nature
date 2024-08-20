@@ -3,10 +3,11 @@
 player=obj_chooseRole.player
 if(obj_pause.stop=0){
 	depth=-y
-	image_blend=c_red
+	if(beatenEffectTime>0) image_blend=c_black
+	else image_blend=c_red
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
-		score+=1
+		score+=10
 		instance_destroy()
 	}
 	if(beatenEffectTime==0){
@@ -17,7 +18,7 @@ if(obj_pause.stop=0){
 			hp=preHp
 		}
 		else{
-			beatenEffectTime=6
+			beatenEffectTime=60
 			preHp=hp
 		}
 	}
@@ -54,17 +55,17 @@ if(obj_pause.stop=0){
 	image_angle = direction
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<25){
-			if(player.p==0){
+			if(player.q==0){
 				player.hp-=10
-				player.p=60
+				player.q=60
 			}
 		}
 	}
 	else{
 		if(distance_to_point(player.x,player.y)<25){
-			if(player.p==0){
+			if(player.q==0){
 				player.hp-=10
-				player.p=60
+				player.q=60
 			}
 		}
 	}

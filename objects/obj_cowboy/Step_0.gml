@@ -85,6 +85,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
+			if(q>0) q-=1
 			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1

@@ -3,7 +3,7 @@
 player=obj_chooseRole.player
 ff=0
 ff2=0
-hp=2000
+hp=4000
 defence=2
 teleportation=false
 skillDirection=0

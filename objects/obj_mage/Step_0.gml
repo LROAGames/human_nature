@@ -94,6 +94,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
+			if(p>0) p-=1
 			if(angryTime>0) angryTime-=1
 			if(lightTime>0) lightTime-=1
 			if(freezeTime>0) freezeTime-=1
@@ -213,7 +214,7 @@ else{
 					iceTime=p*15
 				}
 				else if(obj_staff.sprId==3){
-					for(var i=0;i<p*p*1.5;i+=1){
+					for(var i=0;i<p*p;i+=1){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
 							speed=16
 							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*3+i*4
@@ -255,6 +256,7 @@ else{
 					if(instance_exists(obj_enemyBall)) obj_enemyBall.lightTime=180
 					if(instance_exists(obj_desertEnemy)) obj_desertEnemy.lightTime=180
 					if(instance_exists(obj_speedEnemyBall)) obj_speedEnemyBall.lightTime=180
+					if(instance_exists(obj_strongEnemyBall)) obj_strongEnemyBall.lightTime=180
 					if(instance_exists(obj_enemyBullet_redyy)) instance_destroy(obj_enemyBullet_redyy)
 				}
 				else if(obj_staff.sprId==2){

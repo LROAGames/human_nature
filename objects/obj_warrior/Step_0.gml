@@ -76,6 +76,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
+			if(p>0) p-=1
 			if(b==0){
 				spd=4.5
 			}
