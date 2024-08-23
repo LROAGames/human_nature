@@ -4,6 +4,8 @@ player=obj_chooseRole.player
 if(obj_pause.stop=0){
 	depth=-y
 	image_blend=c_yellow
+	if(iceTime>0) iceTime-=1
+	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
 		score+=1
@@ -13,33 +15,33 @@ if(obj_pause.stop=0){
 		image_alpha=max(hp/maxHp,0.25)
 	}
 	if(hp<preHp){
-		if(beatenEffectTime>0){
-			hp=preHp
-		}
-		else{
-			beatenEffectTime=6
-			preHp=hp
-		}
+		preHp=hp
 	}
 	else if(hp>preHp){
 		preHp=hp
 	}
 	if(beatenEffectTime>0) beatenEffectTime-=1
-	if(distance_to_point(player.x,player.y)<3000&&player.freezeTime>0){
-		iceLever+=2
+	if(instance_exists(obj_mage)){
+		if(distance_to_point(obj_mage.x,obj_mage.y)<3000&&obj_mage.freezeTime>0){
+			iceLever+=2
+			iceTime=300
+		}
 	}
 	if(lightTime>0){
 		lightTime-=1
 		speed=-8
 	}
 	else if(iceLever>2){
-		for(var i=0;i<8;i++){
+		for(var i=0;i<6;i++){
 			with(instance_create_depth(x,y,-50,obj_iceBullet)){
-				direction=i*45
+				direction=i*60
 			}
+		}	
+		if(beatenEffectTime==0){
+			hp-=max(1,obj_calculation.iceDamage-defence)
+			beatenEffectTime=6
 		}
-		hp-=5
-		iceLever-=1
+		iceLever-=3
 	}
 	else if(iceLever==2){
 		image_blend=c_blue

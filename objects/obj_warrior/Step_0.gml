@@ -1,6 +1,6 @@
 
 //summoner
-if(room==room_title||room==room_settings||room==room_help){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
 	visible=false
 }
 else{
@@ -8,16 +8,26 @@ else{
 	if(obj_chooseRole.role=="warrior"){
 		if(obj_pause.stop==0){
 			depth=-y
+			if(angry==1) image_blend=c_yellow
+			else image_blend=c_white
 			if(beatenEffectTime==0){
 				image_alpha=1
 			}
 			if(hp<preHp){
-				if(darkTime>0){
+				if(reboundTime>0){
 					hp=preHp
+					reboundTime=0
+					reboundColdDown=240
+					with(instance_create_depth(x,y,-999999999,obj_defenceField)){
+						alarm[0]=120
+					}
 				}
 				else{
 					beatenEffectTime=30
-					preHp=hp
+					var v=preHp-hp
+					if(angry==0) preHp=hp+v/5
+					else preHp=hp+v/2
+					hp=preHp
 				}
 			}
 			else if(hp>preHp){
@@ -32,9 +42,6 @@ else{
 			}
 			if(image_alpha<0.25){
 				image_alpha=0.25
-			}
-			if(darkTime>0){
-				move_towards_point(mouse_x,mouse_y,12)
 			}
 			else{
 				speed=0
@@ -65,7 +72,18 @@ else{
 			if(y<0) y=0
 			if(x>room_width) x=room_width
 			if(x<0) x=0
-			if(preHp<=0) game_restart()
+			if(preHp<=0){
+				if(revive==0) game_restart()
+				else{
+					hp=60
+					preHp=60
+					energy=100
+					revive=0
+					with(instance_create_depth(x,y,-999999999,obj_defenceField)){
+						alarm[0]=300
+					}
+				}
+			}
 			if(a>0) a-=1
 			if(b>0) b-=1
 			if(c>0) c-=1
@@ -76,32 +94,103 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
-			if(p>0) p-=1
-			if(b==0){
-				spd=4.5
+			if(q>0) q-=1
+			if(reboundTime>0){
+				reboundTime-=1
+				image_blend=c_black
 			}
-			if(energy<100){
+			else{
+				image_blend=c_white
+			}
+			if(fieldTime>0){
+				fieldTime-=1
+				solid=false
+			}
+			else{
+				solid=true
+			}
+			if(b==0){
+				if(fieldTime>0||angry==1) spd=5
+				else spd=4
+			}
+			if(energy<100||revive==0){
 				energyRecoverTime+=1
-				if(energyRecoverTime>=60){
+				if(energyRecoverTime>=60&&revive==1){
+					energy+=1
+					energyRecoverTime=0
+				}
+				if(energyRecoverTime>=50&&revive==0){
+					hp+=0.1
 					energy+=1
 					energyRecoverTime=0
 				}
 			}
+			if(angryTime>0) angryTime-=1
+			else angry=0
 			if(energy<0) energy=0
 			if(energy>100) energy=100
 			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
-			if(hp>100) hp=100
-			if(mouse_check_button(mb_left)){
+			if(reboundColdDown>0) reboundColdDown-=1
+			if(hp>120&&revive==1) hp=120
+			else if(hp>60&&revive==0) hp=60
+			if(mouse_check_button(mb_left)&&energy>=0.5&&obj_shield.attackTime<=-15){
+				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
+					if(1<=other.p&&other.p<2){
+						image_blend=c_yellow
+					}
+					else if(2<=other.p){
+						image_blend=c_red
+					}
+					else{
+						image_blend=c_white
+					}
+				}
 				h+=1
-				if(h>=90){
+				if(h>=40){
+					if(p>=3) p=3
+					else{
+						if(energy>=2){
+							energy-=2
+							p+=1
+						}
+					}
 					h=0
-					p+=1
 				}
 			}
-			if(mouse_check_button_released(mb_left)){
-				energy-=1
+			if(mouse_check_button_released(mb_left)&&obj_shield.attackTime<=-15&&energy>=0.5){
+				if(p==0){
+					energy-=0.5
+					obj_shield.attackTime=15
+				}
+				else{
+					obj_shield.move=1
+					obj_shield.flag=1
+					obj_shield.attackTime=p*30
+					if(angry==0) obj_calculation.shieldDamage=4+p*3
+					else obj_calculation.shieldDamage=12+p*9
+				}
+				h=0
+				p=0
+			}
+			if(mouse_check_button_pressed(mb_right)&&energy>=15&&coldDown<=0){
+				energy-=12
+				coldDown=2400
+				with(instance_create_depth(x,y,-999999999,obj_defenceField)){
+					alarm[0]=300
+				}
+			}
+			if(keyboard_check_pressed(vk_space)&&energy>=4&&reboundTime<=0&&reboundColdDown<=0&&obj_shield.attackTime<=-15){
+				energy-=4
+				reboundTime=24
+				reboundColdDown=480
+			}
+			if(keyboard_check_pressed(ord("F"))&&coldDown2<=0&&obj_shield.attackTime<=-15){
+				energy+=10
+				coldDown2=3600
+				angry=1
+				angryTime=900
 			}
 		}
 		else{

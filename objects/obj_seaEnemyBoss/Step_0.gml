@@ -4,9 +4,15 @@ player=obj_chooseRole.player
 if(obj_pause.stop=0){
 	depth=-y
 	if(a>0) a-=1
-	if(b>0) b-=1if(distance_to_point(player.x,player.y)<3000&&player.freezeTime>0){
-		iceLever+=4
+	if(b>0) b-=1
+	if(c>0) c-=1
+	if(instance_exists(obj_mage)){
+		if(distance_to_point(obj_mage.x,obj_mage.y)<3000&&obj_mage.freezeTime>0){
+			iceLever+=4
+			iceTime=300
+		}
 	}
+	if(lightTime>0) lightTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0){
 		if(iceLever>3){
@@ -35,6 +41,7 @@ if(obj_pause.stop=0){
 			obj_mapSea.xx=x
 			obj_mapSea.yy=y
 			obj_mapSea.alarm[1]=60
+			instance_create_depth(x,y,-100,obj_exit)
 			instance_destroy()
 		}
 	}
@@ -139,16 +146,20 @@ if(obj_pause.stop=0){
 				teleportation=false
 			}
 			else{
-				if(iceLever>6){
+				if(lightTime>=150){
+					speed=-4
+				}
+				else if(iceLever>6){
 					iceLever=4
-					hp-=2
+					hp-=max(1,obj_calculation.iceDamage-defence)
 				}
 				else if(4<=iceLever&&iceLever<=6){
 					image_blend=c_blue
 					speed=0
 				}
-				else if(1<=iceLever&&iceLever<=3){
-					image_blend=c_aqua
+				else if((1<=iceLever&&iceLever<=3)||(lightTime<150&&lightTime>0)){
+					if(iceLever>0) image_blend=c_aqua
+					else image_blend=c_white
 					speed=1
 				}
 				else{

@@ -1,6 +1,6 @@
 
 //mage
-if(room==room_title||room==room_settings||room==room_help){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
 	visible=false
 }
 else{
@@ -94,7 +94,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
-			if(p>0) p-=1
+			if(q>0) q-=1
 			if(angryTime>0) angryTime-=1
 			if(lightTime>0) lightTime-=1
 			if(freezeTime>0) freezeTime-=1
@@ -114,7 +114,7 @@ else{
 						if(obj_staff.sprId==3||obj_staff.sprId==4){
 							with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
 								speed=16
-								direction=point_direction(x,y,mouse_x,mouse_y)-22.5+i*3
+								direction=point_direction(x,y,mouse_x,mouse_y)+i*24
 								image_angle=direction
 							}
 						}
@@ -124,9 +124,9 @@ else{
 			}
 			if(iceTime>0){
 				if(iceTime%15==0){
-					for(var i=0;i<24;i++){
+					for(var i=0;i<15;i++){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,-50,obj_iceBullet)){
-							direction=i*15
+							direction=i*24
 						}
 					}
 				}
@@ -148,9 +148,9 @@ else{
 				if(instance_exists(obj_cactus))obj_cactus.solid=true
 			}
 			if(b==0){
-				if(magicTime>0) spd=5
-				else if(lightTime>0) spd=4.5
-				else spd=4
+				if(magicTime>0) spd=5.5
+				else if(lightTime>0) spd=5
+				else spd=4.5
 			}
 			if(energy<100){
 				energyRecoverTime+=1
@@ -160,7 +160,7 @@ else{
 					energyRecoverTime=0
 				}
 			}
-			if(hp<=20) magicTime=60
+			if(hp<=30) magicTime=60
 			if(energy<0) energy=0
 			if(energy>100) energy=100
 			if(beatenEffectTime>0) beatenEffectTime-=1
@@ -182,18 +182,25 @@ else{
 				h+=1
 				if(angry==0){
 					if(h>60){
-						if(energy>=2){
-							energy-=2
-							p+=1
+						if(p>=3) p=3
+						else{
+							if(energy>=1.5){
+								energy-=1.5
+								p+=1
+							}
 						}
-						if(p>3) p=3
 						h=0
 					}
 				}
 				else if(angry==1){
 					if(h>30){
-						if(energy>=(p+1)*2)p+=1
-						if(p>3) p=3
+						if(p>=3) p=3
+						else{
+							if(energy>=1.5){
+								energy-=1.5
+								p+=1
+							}
+						}
 						h=0
 					}
 				}
@@ -214,10 +221,10 @@ else{
 					iceTime=p*15
 				}
 				else if(obj_staff.sprId==3){
-					for(var i=0;i<p*p;i+=1){
+					for(var i=0;i<p*p*1.2;i+=1){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
 							speed=16
-							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*3+i*4
+							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*2.4+i*4
 							image_angle=direction
 						}
 					}
@@ -249,14 +256,31 @@ else{
 			}
 			if(mouse_check_button_pressed(mb_right)&&coldDown==0&&energy>=20&&obj_staff.sprId!=4){
 				coldDown=1800
-				energy-=20
-				magicTime=300
+				energy-=18
+				magicTime=310
 				if(obj_staff.sprId==0){
 					hp+=3
-					if(instance_exists(obj_enemyBall)) obj_enemyBall.lightTime=180
-					if(instance_exists(obj_desertEnemy)) obj_desertEnemy.lightTime=180
-					if(instance_exists(obj_speedEnemyBall)) obj_speedEnemyBall.lightTime=180
-					if(instance_exists(obj_strongEnemyBall)) obj_strongEnemyBall.lightTime=180
+					if(instance_exists(obj_enemyBall)){
+						if(obj_enemyBall.lightTime<180) obj_enemyBall.lightTime=180
+					}
+					if(instance_exists(obj_desertEnemy)){
+						if(obj_desertEnemy.lightTime<180) obj_desertEnemy.lightTime=180
+					}
+					if(instance_exists(obj_speedEnemyBall)){
+						if(obj_speedEnemyBall.lightTime<180) obj_speedEnemyBall.lightTime=180
+					}
+					if(instance_exists(obj_strongEnemyBall)){
+						if(obj_strongEnemyBall.lightTime<180) obj_strongEnemyBall.lightTime=180
+					}
+					if(instance_exists(obj_enemyBallBoss)){
+						if(obj_enemyBallBoss.lightTime<180) obj_enemyBallBoss.lightTime=180
+					}
+					if(instance_exists(obj_desertEnemyBoss)){
+						if(obj_desertEnemyBoss.lightTime<180) obj_desertEnemyBoss.lightTime=180
+					}
+					if(instance_exists(obj_seaEnemyBoss)){
+						if(obj_seaEnemyBoss.lightTime<180) obj_seaEnemyBoss.lightTime=180
+					}
 					if(instance_exists(obj_enemyBullet_redyy)) instance_destroy(obj_enemyBullet_redyy)
 				}
 				else if(obj_staff.sprId==2){
@@ -280,8 +304,8 @@ else{
 					}
 				}
 			}
-			if(keyboard_check_pressed(ord("F"))&&coldDown2==0){
-				energy+=10
+			if(keyboard_check_pressed(ord("F"))&&coldDown2==0&&energy>=10){
+				energy-=10
 				angry=1
 				angryTime=900
 				coldDown2=9000

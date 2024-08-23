@@ -1,6 +1,6 @@
 
 //cowboy
-if(room==room_title||room==room_settings||room==room_help){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
 	visible=false
 }
 else{
@@ -100,14 +100,25 @@ else{
 				preHp=100
 			}
 			if(b==0) spd=4.5
-	
-			if(mouse_check_button_pressed(mb_right)&&coldDown<=0){
-				for(var i=0;i<90;i+=1){
-					with(instance_create_depth(x,y,0,obj_shot)){
-						direction=point_direction(x,y,mouse_x,mouse_y)-90+i*2
-						image_angle=direction
+			if(fireTime>0){
+				if(fireTime%10==0){
+					for(var i=0;i<45;i+=1){
+						with(instance_create_depth(x,y,0,obj_shot)){
+							direction=point_direction(x,y,mouse_x,mouse_y)-90+i*4
+							image_angle=direction
+						}
 					}
 				}
+				fireTime-=1
+			}
+			if(mouse_check_button_pressed(mb_right)&&coldDown<=0){
+				if(hp<=2){
+					hp=0.1
+				}
+				else{
+					hp-=2
+				}
+				fireTime=20
 				coldDown=1200
 			}
 			if(mouse_check_button_released(mb_left)){
@@ -180,7 +191,7 @@ else{
 			if(h==0&&bulletTime==0){
 				if(keyboard_check_pressed(ord("F"))&&coldDown2<=0){
 					if(hp<=20){
-						hp=1
+						hp=0.1
 						hurtcnt+=4
 					}
 					else{
@@ -190,7 +201,7 @@ else{
 					bullet=60
 					angry=1
 					angryTime=1200
-					coldDown2=4800
+					coldDown2=6000
 				}
 			}
 			if(bullet>0){

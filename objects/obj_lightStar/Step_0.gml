@@ -3,7 +3,7 @@
 if(obj_pause.stop==0){
 	x=obj_mage.x
 	y=obj_mage.y
-	direction+=3
+	direction+=2.5
 	image_angle=direction
 	image_alpha-=1/a*9/10
 }

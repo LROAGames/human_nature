@@ -2,7 +2,7 @@
 // 你可以在此编辑器中写入代码
 spd=4
 coldDown=0//1200
-coldDown2=0//4800
+coldDown2=0//6000
 hp=100
 energy=100
 energyRecoverTime=0
@@ -13,13 +13,7 @@ bulletTime=0
 hurtcnt=0
 angry=0
 angryTime=0
-shadowTime=0
-ninjaTime=0
-magicTime=0
-lightTime=0
-darkTime=0
-iceTime=0
-freezeTime=0
+fireTime=0
 flag=0
 a=0
 b=0

@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 alarm[1]=1200
-for(var i=0;i<100;i+=1){
+for(var i=0;i<20;i+=1){
 	if(i%10==0){
 		with(instance_create_depth(x,y,5,obj_desertEnemy)){
 			flag=true

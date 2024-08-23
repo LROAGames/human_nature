@@ -28,3 +28,12 @@ else if(obj_chooseRole.role=="mage"){
 		instance_destroy()
 	}
 }
+else if(obj_chooseRole.role=="warrior"){
+	x=obj_warrior.x
+	y=obj_warrior.y
+	direction+=9
+	image_angle = direction
+	if(mouse_check_button_released(mb_left)){
+		instance_destroy()
+	}
+}

@@ -1,6 +1,6 @@
 
 //ninja
-if(room==room_title||room==room_settings||room==room_help){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
 	visible=false
 }
 else{
@@ -35,7 +35,6 @@ else{
 			}
 			if(distance_to_point(mx,my)<40){
 				flag=0
-				//if(angry==1) shadowTime=0
 			}
 			if(flag==1&&shadowTime>0){
 				move_towards_point(mx,my,30)
@@ -80,7 +79,7 @@ else{
 			if(m>0) m-=1
 			if(n>0) n-=1
 			if(o>0) o-=1
-			if(p>0) p-=1
+			if(q>0) q-=1
 			if(energy<100){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){
@@ -107,7 +106,7 @@ else{
 			}
 			if(b==0){
 				if(energy>=60){
-					spd=5.5
+					spd=5
 					image_blend=c_yellow
 				}
 				else if(30<=energy&&energy<60){
@@ -115,7 +114,7 @@ else{
 					image_blend=c_white
 				}
 				else{
-					spd=3.5
+					spd=4
 					image_blend=c_grey
 				}
 			}
@@ -133,8 +132,13 @@ else{
 				x=obj_ninjaRealShadow.x
 				y=obj_ninjaRealShadow.y
 			}
+			else if(mouse_check_button_pressed(mb_left)&&shadowTime>0&&energy>=1&&angry==1){
+				energy-=1
+				flag=0
+				shadowTime=0
+			}
 			if(mouse_check_button_pressed(mb_right)&&coldDown<=0&&energy>=15){
-				energy-=15
+				energy-=12
 				coldDown=900
 				for(var i=0;i<30;i+=1){
 					with(instance_create_depth(x,y,depth+10,obj_bigKnife)){
@@ -147,7 +151,7 @@ else{
 				else angry=0
 			}
 			if(keyboard_check_pressed(ord("F"))&&shadowTime==0&&ninjaTime==0&&energy>=30&&coldDown2==0){
-				energy-=30
+				energy-=25
 				ninjaTime=500
 				coldDown2=4500
 				image_alpha=0.25

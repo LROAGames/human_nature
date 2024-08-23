@@ -2,7 +2,10 @@
 // 你可以在此编辑器中写入代码 
 randomise()
 bulletDamage=3
-knifeDamage=10
+iceDamage=5
+shieldDamage=4
+knifeDamage=6
 shotDamage=5
-darkHoleDamage=10
+darkHoleDamage=3
 bigKnifeDamage=30
+defenceFieldDamage=3

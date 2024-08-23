@@ -3,7 +3,7 @@
 player=obj_chooseRole.player
 ff=0
 ff2=0
-hp=4000
+hp=2000
 defence=2
 teleportation=false
 skillDirection=0
@@ -13,10 +13,12 @@ alarm[1]=300
 alarm[2]=1200
 alarm[3]=900
 flag=true
+lightTime=0
 iceLever=0
 iceTime=0
 a=0
 b=0
+c=0
 
 
 

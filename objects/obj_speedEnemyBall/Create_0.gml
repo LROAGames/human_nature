@@ -2,10 +2,11 @@
 // 你可以在此编辑器中写入代码 
 player=obj_chooseRole.player
 iceLever=0
+iceTime=0
 lightTime=0
-hp=4
-preHp=4
-maxHp=4
+hp=5
+preHp=5
+maxHp=5
 defence=0
 beatenEffectTime=0
 alarm[0]=10000

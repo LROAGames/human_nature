@@ -1,6 +1,6 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码
-if(room==room_title||room==room_settings||room==room_help){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
 	visible=false
 }
 else{
@@ -11,9 +11,11 @@ else{
 			image_angle=direction
 			if(obj_ninja.angry==1){
 				image_blend=c_red
+				obj_calculation.knifeDamage=8
 			}
 			else{
 				image_blend=c_white
+				obj_calculation.knifeDamage=6
 			}
 			if(attackTime>0){
 				if(flag==0){

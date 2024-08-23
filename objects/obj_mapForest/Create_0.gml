@@ -30,6 +30,3 @@ for(var i=0;i<1000;i+=1){
 for(var i=0;i<500;i+=1){
 	instance_create_depth(irandom(room_width),irandom(room_height),1,obj_smallRock)
 }
-for(var i=0;i<250;i+=1){
-	instance_create_depth(irandom(room_width),irandom(room_height),1,obj_bigRock)
-}
