@@ -1,6 +1,6 @@
 
 //mage
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -43,10 +43,10 @@ else{
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
-				image_alpha-=0.05
+				image_alpha-=0.02
 			}
 			if(0<beatenEffectTime&&beatenEffectTime<=15){
-				image_alpha+=0.05
+				image_alpha+=0.02
 			}
 			if(image_alpha<0.25){
 				image_alpha=0.25
@@ -152,6 +152,9 @@ else{
 				else if(lightTime>0) spd=5
 				else spd=4.5
 			}
+			else{
+				spd=6
+			}
 			if(energy<100){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){
@@ -184,8 +187,11 @@ else{
 					if(h>60){
 						if(p>=3) p=3
 						else{
-							if(energy>=1.5){
-								energy-=1.5
+							if(irandom(10)<2){
+								p+=1
+							}
+							else if(energy>=2){
+								energy-=2
 								p+=1
 							}
 						}
@@ -196,7 +202,10 @@ else{
 					if(h>30){
 						if(p>=3) p=3
 						else{
-							if(energy>=1.5){
+							if(irandom(10)<2){
+								p+=1
+							}
+							else if(energy>=1.5){
 								energy-=1.5
 								p+=1
 							}
@@ -212,8 +221,8 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(12-(other.p-3)*(other.p-3))*60
-							a=(12-(other.p-3)*(other.p-3))*60
+							alarm[0]=(15-(other.p-3)*(other.p-3))*60
+							a=(15-(other.p-3)*(other.p-3))*60
 						}
 					}
 				}
@@ -221,7 +230,7 @@ else{
 					iceTime=p*15
 				}
 				else if(obj_staff.sprId==3){
-					for(var i=0;i<p*p*1.2;i+=1){
+					for(var i=0;i<p*p*1.5;i+=1){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
 							speed=16
 							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*2.4+i*4
@@ -234,8 +243,8 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(12-(other.p-3)*(other.p-3))*60
-							a=(12-(other.p-3)*(other.p-3))*60
+							alarm[0]=(15-(other.p-3)*(other.p-3))*60
+							a=(15-(other.p-3)*(other.p-3))*60
 						}
 					}
 					iceTime=p*30
@@ -254,9 +263,9 @@ else{
 				energy-=9
 				darkTime=75
 			}
-			if(mouse_check_button_pressed(mb_right)&&coldDown==0&&energy>=20&&obj_staff.sprId!=4){
+			if(mouse_check_button_pressed(mb_right)&&coldDown==0&&energy>=15&&obj_staff.sprId!=4){
 				coldDown=1800
-				energy-=18
+				energy-=15
 				magicTime=310
 				if(obj_staff.sprId==0){
 					hp+=3
@@ -304,8 +313,8 @@ else{
 					}
 				}
 			}
-			if(keyboard_check_pressed(ord("F"))&&coldDown2==0&&energy>=10){
-				energy-=10
+			if(keyboard_check_pressed(ord("F"))&&coldDown2==0&&energy>=30){
+				energy-=30
 				angry=1
 				angryTime=900
 				coldDown2=9000

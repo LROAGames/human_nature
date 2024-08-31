@@ -4,6 +4,7 @@ player=obj_chooseRole.player
 iceLever=0
 iceTime=0
 lightTime=0
+posionTime=0
 hp=5
 preHp=5
 maxHp=5

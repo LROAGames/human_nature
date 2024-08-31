@@ -12,6 +12,10 @@ if(obj_pause.stop=0){
 			iceTime=300
 		}
 	}
+	if(posionTime>0){
+		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
+		posionTime-=1
+	}
 	if(lightTime>0) lightTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0){
@@ -42,6 +46,7 @@ if(obj_pause.stop=0){
 			obj_mapSea.yy=y
 			obj_mapSea.alarm[1]=60
 			instance_create_depth(x,y,-100,obj_exit)
+			instance_create_depth(player.x,player.y,-100,obj_findExit)
 			instance_destroy()
 		}
 	}

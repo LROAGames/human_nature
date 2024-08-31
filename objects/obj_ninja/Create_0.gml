@@ -2,7 +2,7 @@
 // 你可以在此编辑器中写入代码
 spd=4
 coldDown=0//900
-coldDown2=0//4500
+coldDown2=0//4800
 hp=100
 energy=100
 energyRecoverTime=0

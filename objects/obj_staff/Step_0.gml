@@ -1,6 +1,6 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{

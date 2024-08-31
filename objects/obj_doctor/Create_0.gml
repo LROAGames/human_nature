@@ -1,0 +1,30 @@
+/// @description 在此处插入描述 
+// 你可以在此编辑器中写入代码
+spd=4
+coldDown=0//1500
+coldDown2=0//0
+hp=40
+maxHp=40
+preHp=40
+energy=0
+maxEnergy=40
+energyRecoverTime=0
+beatenEffectTime=0
+angry=0
+angryTime=0
+flag=0
+a=0
+b=0
+c=0
+d=0
+e=0
+f=0
+g=0
+h=0
+p=0
+m=0
+n=0
+o=0
+q=0
+mx=0
+my=0

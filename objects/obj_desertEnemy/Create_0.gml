@@ -11,5 +11,6 @@ angry = false
 iceLever=0
 iceTime=0
 lightTime=0
+posionTime=0
 beatenEffectTime=0
 alarm[0]=10000

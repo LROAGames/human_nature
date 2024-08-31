@@ -11,6 +11,7 @@ lightTime=0
 iceLever=0
 iceTime=0
 iceFlag=0
+posionTime=0
 speed=2
 alarm[0]=1000
 alarm[1]=1000

@@ -1,6 +1,6 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -11,7 +11,7 @@ else{
 			image_angle=direction
 			if(obj_ninja.angry==1){
 				image_blend=c_red
-				obj_calculation.knifeDamage=8
+				obj_calculation.knifeDamage=9
 			}
 			else{
 				image_blend=c_white
@@ -50,9 +50,6 @@ else{
 				flag=1
 			}
 			if(attackTime>0) attackTime-=1
-			if(mouse_check_button_pressed(mb_left)&&obj_ninja.shadowTime==0&&obj_ninja.energy>=1){
-				attackTime=30
-			}
 		}
 	}
 	else{

@@ -8,6 +8,7 @@ defence=2
 lightTime=0
 iceLever=0
 iceTime=0
+posionTime=0
 speed=1.5
 a=0
 b=0

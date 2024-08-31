@@ -16,6 +16,7 @@ flag=true
 lightTime=0
 iceLever=0
 iceTime=0
+posionTime=0
 a=0
 b=0
 c=0

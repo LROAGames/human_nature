@@ -23,7 +23,7 @@ if(obj_pause.stop=0){
 		}
 	}
 	if(instance_exists(obj_seaEnemyBoss)){
-		if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<80){
+		if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<90){
 			obj_seaEnemyBoss.hp-=max(1,damage-obj_seaEnemyBoss.defence)
 			instance_destroy()
 		}

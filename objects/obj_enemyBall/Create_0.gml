@@ -6,6 +6,7 @@ angel=0
 iceLever=0
 iceTime=0
 lightTime=0
+posionTime=0
 hp=8
 preHp=8
 maxHp=8

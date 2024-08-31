@@ -21,4 +21,5 @@ beatenEffectTime=0
 iceLever=0
 iceTime=0
 lightTime=0
+posionTime=0
 alarm[0]=36000

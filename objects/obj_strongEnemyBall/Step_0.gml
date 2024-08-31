@@ -5,6 +5,10 @@ if(obj_pause.stop=0){
 	depth=-y
 	if(beatenEffectTime>0) image_blend=c_black
 	else image_blend=c_red
+	if(posionTime>0){
+		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
+		posionTime-=1
+	}
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
@@ -53,7 +57,7 @@ if(obj_pause.stop=0){
 		speed=1
 	}
 	else{
-		if(room=room_sea) speed=4
+		if(room=room_sea) speed=3.5
 		else speed=3
 	}
 	direction = point_direction(x,y,player.x,player.y)

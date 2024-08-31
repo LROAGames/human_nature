@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{

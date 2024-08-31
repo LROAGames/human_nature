@@ -18,4 +18,8 @@ if(room==room_settings){
 		role="warrior"
 		player=obj_warrior
 	}
+	else if(keyboard_check_pressed(ord("5"))){
+		role="doctor"
+		player=obj_doctor
+	}
 }

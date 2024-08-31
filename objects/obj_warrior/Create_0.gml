@@ -1,12 +1,12 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码
 spd=4
-coldDown=0//2400
-coldDown2=0//7200
-hp=120
+coldDown=0//2100
+coldDown2=0//5400
+hp=60
+preHp=60
 energy=100
 energyRecoverTime=0
-preHp=100
 beatenEffectTime=0
 hurtcnt=0
 angry=0

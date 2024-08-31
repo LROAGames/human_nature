@@ -39,6 +39,10 @@ if(obj_pause.stop=0){
 	if(b>0) b-=1
 	if(c>0) c-=1
 	if(d>0) d-=1
+	if(posionTime>0){
+		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
+		posionTime-=1
+	}
 	if(lightTime>0) lightTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0){
@@ -66,11 +70,11 @@ if(obj_pause.stop=0){
 		}
 		else if((1<=iceLever&&iceLever<=3)||(lightTime<150&&lightTime>0)){
 			if(iceLever>0) image_blend=c_aqua
-			else image_blend=c_white
+			else image_blend=c_ltgray
 			speed=1
 		}
 		else{
-			image_blend=c_white
+			image_blend=c_ltgray
 			speed=1.5
 		}
 		direction = point_direction(x,y,player.x,player.y)

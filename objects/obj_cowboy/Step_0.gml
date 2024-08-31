@@ -1,6 +1,6 @@
 
 //cowboy
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -20,6 +20,10 @@ else{
 			}
 			if(hurtcnt>=3){
 				hurtcnt-=3
+				with(instance_create_depth(x,y,1,obj_darkHole)){
+					direction=point_direction(x,y,mouse_x,mouse_y)
+					image_angle=direction
+				}
 				for(var i=0;i<30;i+=1){
 					with(instance_create_depth(x,y,0,obj_shot)){
 						direction=point_direction(x,y,mouse_x,mouse_y)+i*12
@@ -31,7 +35,6 @@ else{
 				image_alpha=1
 			}
 			if(hp<preHp){
-				if(room!=room_game2_2) hurtcnt+=1
 				beatenEffectTime=30
 				preHp=hp
 			}
@@ -40,10 +43,10 @@ else{
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
-				image_alpha-=0.05
+				image_alpha-=0.02
 			}
 			if(0<beatenEffectTime&&beatenEffectTime<=15){
-				image_alpha+=0.05
+				image_alpha+=0.02
 			}
 			if(image_alpha<0.25){
 				image_alpha=0.25
@@ -100,6 +103,9 @@ else{
 				preHp=100
 			}
 			if(b==0) spd=4.5
+			else{
+				spd=6
+			}
 			if(fireTime>0){
 				if(fireTime%10==0){
 					for(var i=0;i<45;i+=1){
@@ -138,18 +144,36 @@ else{
 				else if(p==0&&bullet>=1&&bulletTime==0){
 					bullet-=1
 					if(angry==0){
-						with(instance_create_depth(x,y,0,obj_bullet)){
-							speed=16
-							direction=point_direction(x,y,mouse_x,mouse_y)
-							image_angle=direction
+						if(irandom(10)<2){
+							with(instance_create_depth(x,y,0,obj_shot)){
+								speed=16
+								direction=point_direction(x,y,mouse_x,mouse_y)
+								image_angle=direction
+							}
+						}
+						else{
+							with(instance_create_depth(x,y,0,obj_bullet)){
+								speed=16
+								direction=point_direction(x,y,mouse_x,mouse_y)
+								image_angle=direction
+							}
 						}
 					}
 					else if(angry==1){
 						for(var i=0;i<5;i+=1){
-							with(instance_create_depth(x,y,0,obj_bullet)){
-								speed=16
-								direction=point_direction(x,y,mouse_x,mouse_y)-10+i*5
-								image_angle=direction
+							if(irandom(10)<2){
+								with(instance_create_depth(x,y,0,obj_shot)){
+									speed=16
+									direction=point_direction(x,y,mouse_x,mouse_y)-10+i*4
+									image_angle=direction
+								}
+							}
+							else{
+								with(instance_create_depth(x,y,0,obj_bullet)){
+									speed=16
+									direction=point_direction(x,y,mouse_x,mouse_y)-10+i*4
+									image_angle=direction
+								}
 							}
 						}
 					}
@@ -210,14 +234,14 @@ else{
 						instance_create_depth(x,y,-999999999,obj_savePower)
 						h+=1
 						if(angry==0){
-							if(h>60){
+							if(h>=60){
 								p+=5
 								if(p>5) p=5
 								h=0
 							}
 						}
 						else if(angry==1){
-							if(h>30){
+							if(h>=30){
 								p+=5
 								if(p>5) p=5
 								h=0

@@ -5,6 +5,10 @@ if(obj_pause.stop==0){
 	image_angle=direction
 	image_alpha=max(hp/maxHp,0.25)
 	direction = point_direction(x,y,player.x,player.y)
+	if(posionTime>0){
+		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
+		posionTime-=1
+	}
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp

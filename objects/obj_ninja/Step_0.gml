@@ -1,6 +1,6 @@
 
 //ninja
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -17,7 +17,14 @@ else{
 				}
 				else{
 					beatenEffectTime=30
-					preHp=hp
+					if(irandom(10)<2){
+						hp=preHp
+						with(instance_create_depth(x,y,1,obj_darkHole)){
+							direction=other.direction
+							image_angle=direction
+						}
+					}
+					else preHp=hp
 				}
 			}
 			else if(hp>preHp){
@@ -97,15 +104,23 @@ else{
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(shadowTime>0) shadowTime-=1
-			if(hp>100) hp=100
+			if(hp>100){
+				hp=100
+				preHp=100
+			}
 			if(ninjaTime>0){
 				coldDown=0
-				image_alpha+=0.001
+				image_blend=c_black
+				image_alpha-=0.0015
 				ninjaTime-=1
 				obj_knife.attackTime=30
 			}
 			if(b==0){
-				if(energy>=60){
+				if(ninjaTime>0){
+					spd=6
+					image_blend=c_black
+				}
+				else if(energy>=60){
 					spd=5
 					image_blend=c_yellow
 				}
@@ -118,8 +133,12 @@ else{
 					image_blend=c_grey
 				}
 			}
+			else{
+				spd=6
+			}
 			if(mouse_check_button_pressed(mb_left)&&shadowTime<=0&&energy>=1){
 				energy-=1
+				obj_knife.attackTime=30
 				shadowTime=60
 				flag=1
 				mx=mouse_x
@@ -137,7 +156,7 @@ else{
 				flag=0
 				shadowTime=0
 			}
-			if(mouse_check_button_pressed(mb_right)&&coldDown<=0&&energy>=15){
+			if(mouse_check_button_pressed(mb_right)&&coldDown<=0&&energy>=12){
 				energy-=12
 				coldDown=900
 				for(var i=0;i<30;i+=1){
@@ -150,11 +169,11 @@ else{
 				if(angry==0) angry=1
 				else angry=0
 			}
-			if(keyboard_check_pressed(ord("F"))&&shadowTime==0&&ninjaTime==0&&energy>=30&&coldDown2==0){
+			if(keyboard_check_pressed(ord("F"))&&shadowTime==0&&ninjaTime==0&&energy>=25&&coldDown2==0){
 				energy-=25
-				ninjaTime=500
-				coldDown2=4500
-				image_alpha=0.25
+				ninjaTime=600
+				coldDown2=4800
+				image_alpha=1
 			}
 		}
 		else{
