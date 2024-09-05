@@ -1,6 +1,6 @@
 
 //ninja
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{

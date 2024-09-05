@@ -1,6 +1,6 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码 
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -22,9 +22,9 @@ else{
 				sprite_index=spr_healNeedle
 			}
 			if(attackTime>0) image_blend=c_dkgrey
-			else if(attackTime>-24&&attackTime<=0) image_blend=c_ltgray
+			else if(attackTime>-18&&attackTime<=0) image_blend=c_ltgray
 			else image_blend=c_white
-			if(attackTime>-24) attackTime-=1
+			if(attackTime>-18) attackTime-=1
 			if(attackTime<=0){
 				if(alarm[0]>0&&attackTime<-9){
 					attackTime=6

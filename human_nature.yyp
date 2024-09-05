@@ -27,7 +27,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.0.169",
   },
   "name":"human_nature",
   "resources":[
@@ -56,6 +56,7 @@
     {"id":{"name":"obj_exit","path":"objects/obj_exit/obj_exit.yy",},},
     {"id":{"name":"obj_findExit","path":"objects/obj_findExit/obj_findExit.yy",},},
     {"id":{"name":"obj_fullScreen","path":"objects/obj_fullScreen/obj_fullScreen.yy",},},
+    {"id":{"name":"obj_healField","path":"objects/obj_healField/obj_healField.yy",},},
     {"id":{"name":"obj_help","path":"objects/obj_help/obj_help.yy",},},
     {"id":{"name":"obj_iceBullet","path":"objects/obj_iceBullet/obj_iceBullet.yy",},},
     {"id":{"name":"obj_knife","path":"objects/obj_knife/obj_knife.yy",},},
@@ -71,6 +72,7 @@
     {"id":{"name":"obj_ninjaRealShadow","path":"objects/obj_ninjaRealShadow/obj_ninjaRealShadow.yy",},},
     {"id":{"name":"obj_ninjaShadow","path":"objects/obj_ninjaShadow/obj_ninjaShadow.yy",},},
     {"id":{"name":"obj_pause","path":"objects/obj_pause/obj_pause.yy",},},
+    {"id":{"name":"obj_posionField","path":"objects/obj_posionField/obj_posionField.yy",},},
     {"id":{"name":"obj_redFlower","path":"objects/obj_redFlower/obj_redFlower.yy",},},
     {"id":{"name":"obj_reload","path":"objects/obj_reload/obj_reload.yy",},},
     {"id":{"name":"obj_savePower","path":"objects/obj_savePower/obj_savePower.yy",},},
@@ -90,6 +92,7 @@
     {"id":{"name":"obj_yellowDot","path":"objects/obj_yellowDot/obj_yellowDot.yy",},},
     {"id":{"name":"obj_yellowFlower","path":"objects/obj_yellowFlower/obj_yellowFlower.yy",},},
     {"id":{"name":"room_chooseMap","path":"rooms/room_chooseMap/room_chooseMap.yy",},},
+    {"id":{"name":"room_chooseRole","path":"rooms/room_chooseRole/room_chooseRole.yy",},},
     {"id":{"name":"room_desert","path":"rooms/room_desert/room_desert.yy",},},
     {"id":{"name":"room_forest","path":"rooms/room_forest/room_forest.yy",},},
     {"id":{"name":"room_help","path":"rooms/room_help/room_help.yy",},},
@@ -163,6 +166,7 @@
     {"roomId":{"name":"room_sea","path":"rooms/room_sea/room_sea.yy",},},
     {"roomId":{"name":"room_chooseMap","path":"rooms/room_chooseMap/room_chooseMap.yy",},},
     {"roomId":{"name":"room_win","path":"rooms/room_win/room_win.yy",},},
+    {"roomId":{"name":"room_chooseRole","path":"rooms/room_chooseRole/room_chooseRole.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[

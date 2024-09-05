@@ -1,9 +1,9 @@
 {
   "$GMSprite":"",
   "%Name":"spr_healNeedle",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":91,
-  "bbox_left":79,
+  "bbox_left":48,
   "bbox_right":159,
   "bbox_top":67,
   "collisionKind":1,

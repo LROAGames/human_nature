@@ -1,6 +1,6 @@
 
 //cowboy
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_chooseRole||room==room_win){
 	visible=false
 }
 else{
@@ -20,10 +20,6 @@ else{
 			}
 			if(hurtcnt>=3){
 				hurtcnt-=3
-				with(instance_create_depth(x,y,1,obj_darkHole)){
-					direction=point_direction(x,y,mouse_x,mouse_y)
-					image_angle=direction
-				}
 				for(var i=0;i<30;i+=1){
 					with(instance_create_depth(x,y,0,obj_shot)){
 						direction=point_direction(x,y,mouse_x,mouse_y)+i*12
@@ -118,11 +114,11 @@ else{
 				fireTime-=1
 			}
 			if(mouse_check_button_pressed(mb_right)&&coldDown<=0){
-				if(hp<=2){
+				if(hp<=1){
 					hp=0.1
 				}
 				else{
-					hp-=2
+					hp-=1
 				}
 				fireTime=20
 				coldDown=1200

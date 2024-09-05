@@ -1,6 +1,6 @@
 
 //summoner
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -31,7 +31,7 @@ else{
 					beatenEffectTime=30
 					var v=preHp-hp
 					if(angry==0) preHp=hp+v/5
-					else preHp=hp+v/2
+					else preHp=hp+v*4/5
 					hp=preHp
 				}
 			}
@@ -131,10 +131,6 @@ else{
 			}
 			if(angryTime>0){
 				angryTime-=1
-				with(instance_create_depth(x,y,1,obj_darkHole)){
-					direction=other.direction
-					image_angle=direction
-				}
 			}
 			else angry=0
 			if(energy<0) energy=0
@@ -143,7 +139,7 @@ else{
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(reboundColdDown>0) reboundColdDown-=1
-			if(hp>60) hp=60
+			if(hp>60&&angry==0) hp=60
 			if(mouse_check_button(mb_left)&&energy>=0.5&&obj_shield.attackTime<=-15){
 				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
 					if(1<=other.p&&other.p<2){
@@ -197,6 +193,7 @@ else{
 			}
 			if(keyboard_check_pressed(ord("F"))&&coldDown2<=0&&obj_shield.attackTime<=-15&&energy>=25){
 				energy-=25
+				hp+=15
 				coldDown2=5400
 				angry=1
 				angryTime=1080

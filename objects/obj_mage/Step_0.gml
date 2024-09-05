@@ -1,6 +1,6 @@
 
 //mage
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -317,7 +317,7 @@ else{
 				energy-=30
 				angry=1
 				angryTime=900
-				coldDown2=9000
+				coldDown2=6900
 				magicTime=900
 			}
 		}

@@ -8,6 +8,10 @@ else{
 	draw_text(10,130,"energy:")
 	draw_text(100,130,player.energy)
 }
+if(obj_chooseRole.role=="doctor"){
+	draw_text(150,10,"wound:")
+	draw_text(230,10,obj_doctor.reduceHp)
+}
 draw_set_color(c_white)
 draw_set_font(fnt_chs_zipx)
 draw_text(10,10,"HP:")
