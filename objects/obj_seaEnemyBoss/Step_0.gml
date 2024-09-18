@@ -6,6 +6,7 @@ if(obj_pause.stop=0){
 	if(a>0) a-=1
 	if(b>0) b-=1
 	if(c>0) c-=1
+	if(d>0) d-=1
 	if(instance_exists(obj_mage)){
 		if(distance_to_point(obj_mage.x,obj_mage.y)<3000&&obj_mage.freezeTime>0){
 			iceLever+=4
@@ -16,6 +17,7 @@ if(obj_pause.stop=0){
 		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
 		posionTime-=1
 	}
+	if(summonFieldTime>0) summonFieldTime-=1
 	if(lightTime>0) lightTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0){
@@ -35,7 +37,7 @@ if(obj_pause.stop=0){
 		direction+=2
 		image_angle=direction
 		image_alpha-=0.0016
-		with(instance_create_depth(x,y,0,obj_enemyBullet_redyy)){
+		with(instance_create_depth(x,y,0,obj_seaBossBullet)){
 			speed=6
 			direction=other.direction
 			image_angle=direction
@@ -55,7 +57,7 @@ if(obj_pause.stop=0){
 		if(obj_chooseRole.role=="ninja"){
 			if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<10){
 				if(player.g==0){
-					player.hp-=20
+					player.hp-=obj_calculation.seaEnemyBossDamage
 					player.g=60
 				}
 			}
@@ -63,7 +65,7 @@ if(obj_pause.stop=0){
 		else{
 			if(distance_to_point(player.x,player.y)<10){
 				if(player.g==0){
-					player.hp-=20
+					player.hp-=obj_calculation.seaEnemyBossDamage
 					player.g=60
 				}
 			}
@@ -99,23 +101,23 @@ if(obj_pause.stop=0){
 			if(alarm[1]<150&&alarm[1]%60==0){
 				ff2=(ff2+1)%4 
 				if(ff2==1){
-					x=player.x-1000+random(400)
-					y=player.y-1000+random(400)	
+					x=player.x-1000+random(200)
+					y=player.y-1000+random(200)	
 				}
 				else if(ff2==2){
-					x=player.x+1000-random(400)
-					y=player.y+1000-random(400)	
+					x=player.x+1000-random(200)
+					y=player.y+1000-random(200)	
 				}
 				else if(ff2==3){
-					x=player.x-1000+random(400)
-					y=player.y+1000-random(400)	
+					x=player.x-1000+random(200)
+					y=player.y+1000-random(200)	
 				}
 				else{
-					x=player.x+1000-random(400)
-					y=player.y-1000+random(400)	
+					x=player.x+1000-random(200)
+					y=player.y-1000+random(200)	
 				}
 				for(var i=0;i<36;i+=1){
-					with(instance_create_depth(x,y,0,obj_enemyBullet_redyy)){
+					with(instance_create_depth(x,y,0,obj_seaBossBullet)){
 						speed=6
 						direction=i*10%360
 						image_angle=direction
@@ -124,7 +126,7 @@ if(obj_pause.stop=0){
 			}
 			if(alarm[2]<3){
 				for(var i=0;i<10;i+=1){
-					with(instance_create_depth(x,y,0,obj_enemyBullet_redyy)){
+					with(instance_create_depth(x,y,0,obj_seaBossBullet)){
 						direction = point_direction(x,y,player.x,player.y)-10+i*2
 						image_angle=direction
 					}

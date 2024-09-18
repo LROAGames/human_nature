@@ -1,5 +1,6 @@
 
 //mage
+event_inherited();
 if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
@@ -84,17 +85,6 @@ else{
 			if(x>room_width) x=room_width
 			if(x<0) x=0
 			if(preHp<=0) game_restart()
-			if(a>0) a-=1
-			if(b>0) b-=1
-			if(c>0) c-=1
-			if(d>0) d-=1
-			if(e>0) e-=1
-			if(f>0) f-=1
-			if(g>0) g-=1
-			if(m>0) m-=1
-			if(n>0) n-=1
-			if(o>0) o-=1
-			if(q>0) q-=1
 			if(angryTime>0) angryTime-=1
 			if(lightTime>0) lightTime-=1
 			if(freezeTime>0) freezeTime-=1
@@ -104,8 +94,8 @@ else{
 						if(obj_staff.sprId==0&&i%4==0||obj_staff.sprId==4&&i%4==0){
 							with(instance_create_depth(x,y,-50,obj_lightStar)){
 								direction=i*120
-								alarm[0]=1080
-								a=1080
+								alarm[0]=1200
+								a=1200
 							}
 						}
 						if(obj_staff.sprId==2||obj_staff.sprId==4){
@@ -113,6 +103,7 @@ else{
 						}
 						if(obj_staff.sprId==3||obj_staff.sprId==4){
 							with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
+								//magic=2
 								speed=16
 								direction=point_direction(x,y,mouse_x,mouse_y)+i*24
 								image_angle=direction
@@ -124,9 +115,9 @@ else{
 			}
 			if(iceTime>0){
 				if(iceTime%15==0){
-					for(var i=0;i<15;i++){
+					for(var i=0;i<20;i++){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,-50,obj_iceBullet)){
-							direction=i*24
+							direction=i*18
 						}
 					}
 				}
@@ -152,10 +143,13 @@ else{
 				else if(lightTime>0) spd=5
 				else spd=4.5
 			}
+			else if(b<0){
+				spd=2
+			}
 			else{
 				spd=6
 			}
-			if(energy<100){
+			if(energy<maxEnergy){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){
 					if(magicTime>0) energy+=1.5
@@ -165,11 +159,11 @@ else{
 			}
 			if(hp<=30) magicTime=60
 			if(energy<0) energy=0
-			if(energy>100) energy=100
+			if(energy>maxEnergy) energy=maxEnergy
 			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
-			if(hp>100) hp=100
+			if(hp>maxHp) hp=maxHp
 			if(mouse_check_button(mb_left)&&energy>=2&&obj_staff.sprId!=1){
 				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
 					if(1<=other.p&&other.p<2){
@@ -221,8 +215,8 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(15-(other.p-3)*(other.p-3))*60
-							a=(15-(other.p-3)*(other.p-3))*60
+							alarm[0]=(20-(other.p-3)*(other.p-3))*60
+							a=(20-(other.p-3)*(other.p-3))*60
 						}
 					}
 				}
@@ -230,8 +224,9 @@ else{
 					iceTime=p*15
 				}
 				else if(obj_staff.sprId==3){
-					for(var i=0;i<p*p*1.5;i+=1){
+					for(var i=0;i<p*p*1.2;i+=1){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
+							magic=other.p
 							speed=16
 							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*2.4+i*4
 							image_angle=direction
@@ -243,13 +238,14 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(15-(other.p-3)*(other.p-3))*60
-							a=(15-(other.p-3)*(other.p-3))*60
+							alarm[0]=(20-(other.p-3)*(other.p-3))*60
+							a=(20-(other.p-3)*(other.p-3))*60
 						}
 					}
 					iceTime=p*30
 					for(var i=0;i<p*p*3;i+=1){
 						with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
+							//magic=other.p
 							speed=16
 							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*other.p*3+i*2
 							image_angle=direction
@@ -290,7 +286,7 @@ else{
 					if(instance_exists(obj_seaEnemyBoss)){
 						if(obj_seaEnemyBoss.lightTime<180) obj_seaEnemyBoss.lightTime=180
 					}
-					if(instance_exists(obj_enemyBullet_redyy)) instance_destroy(obj_enemyBullet_redyy)
+					if(instance_exists(obj_enemyBulletRedyy)) instance_destroy(obj_enemyBulletRedyy)
 				}
 				else if(obj_staff.sprId==2){
 					freezeTime=1
@@ -298,6 +294,7 @@ else{
 				else if(obj_staff.sprId==3){
 					for(var i=0;i<120;i+=1){
 						with(instance_create_depth(x,y,0,obj_shot)){
+							//magic=2
 							direction=point_direction(x,y,mouse_x,mouse_y)+i*3
 							image_angle=direction
 						}
@@ -316,9 +313,9 @@ else{
 			if(keyboard_check_pressed(ord("F"))&&coldDown2==0&&energy>=30){
 				energy-=30
 				angry=1
-				angryTime=900
-				coldDown2=6900
-				magicTime=900
+				angryTime=1200
+				coldDown2=7200
+				magicTime=1200
 			}
 		}
 		else{

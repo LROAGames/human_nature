@@ -9,5 +9,7 @@ if(room==room_chooseRole){
 	draw_text(50,200,"Press 3 to choose mage")
 	draw_text(50,250,"Press 4 to choose warrior")
 	draw_text(50,300,"Press 5 to choose doctor")
+	draw_text(50,350,"Press 6 to choose summoner")
+	draw_text(50,400,"Press 7 to choose acrobat")
 	draw_text(50,700,"Press X to home")
 }

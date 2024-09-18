@@ -1,5 +1,6 @@
 
-//summoner
+//doctor
+event_inherited();
 if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
@@ -25,14 +26,21 @@ else{
 					reduceHp-=0.1
 					hp-=0.1
 					preHp-=0.1
-					hpReduceTime=3
+					hpReduceTime=2
 				}
 			}
 			if(hp<preHp){
 				beatenEffectTime=30
-				reduceHp+=preHp-hp-0.1
-				hp=preHp-0.1
-				preHp=hp
+				if(preHp-hp>=1){
+					reduceHp+=preHp-hp-1
+					hp=preHp-1
+					preHp=hp
+				}
+				else{
+					reduceHp+=preHp-hp-0.1
+					hp=preHp-0.1
+					preHp=hp
+				}
 			}
 			else if(hp>preHp){
 				beatenEffectTime=30
@@ -76,19 +84,11 @@ else{
 			if(preHp<=0){
 				game_restart()
 			}
-			if(a>0) a-=1
-			if(b>0) b-=1
-			if(c>0) c-=1
-			if(d>0) d-=1
-			if(e>0) e-=1
-			if(f>0) f-=1
-			if(g>0) g-=1
-			if(m>0) m-=1
-			if(n>0) n-=1
-			if(o>0) o-=1
-			if(q>0) q-=1
 			if(b==0){
 				spd=4+(maxEnergy-40-(maxEnergy-40)%30)/60
+			}
+			else if(b<0){
+				spd=2
 			}
 			else{
 				spd=6
@@ -154,7 +154,7 @@ else{
 				p=0
 			}
 			if(mouse_check_button_pressed(mb_right)&&energy>=10&&coldDown<=0){
-				coldDown=1200
+				coldDown=1500
 				energy-=10
 				var md=obj_needle.mode
 				obj_needle.alarm[0]=600
@@ -173,7 +173,32 @@ else{
 				energy=maxEnergy/2
 				reduceHp=0
 				hpReduceTime=0
-				if(maxEnergy<100) maxEnergy+=30
+				if(maxEnergy<100){
+					var md=obj_needle.mode
+					if(maxEnergy=40){
+						for(var i=8;i<=9;i++){
+							with(instance_create_depth(x,y,-y,obj_needle)){
+								num=i
+								mode=md
+								alarm[0]=-1
+								direction=point_direction(x,y,mouse_x,mouse_y)-120+num*30
+								image_angle=direction
+							}
+						}
+					}
+					else{
+						for(var i=10;i<=11;i++){
+							with(instance_create_depth(x,y,-y,obj_needle)){
+								num=i
+								mode=md
+								alarm[0]=-1
+								direction=point_direction(x,y,mouse_x,mouse_y)-120+num*30
+								image_angle=direction
+							}
+						}
+					}
+					maxEnergy+=30
+				}
 				if(maxHp<100) maxHp+=30
 				hp=maxHp
 				preHp=maxHp

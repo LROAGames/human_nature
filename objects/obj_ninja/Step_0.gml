@@ -1,5 +1,6 @@
 
 //ninja
+event_inherited();
 if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
@@ -20,6 +21,10 @@ else{
 					if(irandom(10)<2){
 						hp=preHp
 						with(instance_create_depth(x,y,1,obj_darkHole)){
+							direction=other.direction
+							image_angle=direction
+						}
+						with(instance_create_depth(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y,1,obj_darkHole)){
 							direction=other.direction
 							image_angle=direction
 						}
@@ -76,18 +81,7 @@ else{
 			if(x>room_width) x=room_width
 			if(x<0) x=0
 			if(preHp<=0) game_restart()
-			if(a>0) a-=1
-			if(b>0) b-=1
-			if(c>0) c-=1
-			if(d>0) d-=1
-			if(e>0) e-=1
-			if(f>0) f-=1
-			if(g>0) g-=1
-			if(m>0) m-=1
-			if(n>0) n-=1
-			if(o>0) o-=1
-			if(q>0) q-=1
-			if(energy<100){
+			if(energy<maxEnergy){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){
 					if(angry==0){
@@ -99,14 +93,14 @@ else{
 				}
 			}
 			if(energy<0) energy=0
-			if(energy>100) energy=100
+			if(energy>maxEnergy) energy=maxEnergy
 			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(shadowTime>0) shadowTime-=1
-			if(hp>100){
-				hp=100
-				preHp=100
+			if(hp>maxHp){
+				hp=maxHp
+				preHp=maxHp
 			}
 			if(ninjaTime>0){
 				coldDown=0
@@ -121,17 +115,20 @@ else{
 					image_blend=c_black
 				}
 				else if(energy>=60){
-					spd=5
+					spd=5.5
 					image_blend=c_yellow
 				}
 				else if(30<=energy&&energy<60){
-					spd=4.5
+					spd=5
 					image_blend=c_white
 				}
 				else{
-					spd=4
+					spd=4.5
 					image_blend=c_grey
 				}
+			}
+			else if(b<0){
+				spd=2
 			}
 			else{
 				spd=6
@@ -165,14 +162,14 @@ else{
 					}
 				}
 			}
-			if(keyboard_check_pressed(vk_space)&&shadowTime==0&&obj_knife.attackTime==0){
+			if(keyboard_check_pressed(vk_space)){
 				if(angry==0) angry=1
 				else angry=0
 			}
 			if(keyboard_check_pressed(ord("F"))&&shadowTime==0&&ninjaTime==0&&energy>=25&&coldDown2==0){
-				energy-=25
+				energy-=30
 				ninjaTime=600
-				coldDown2=4800
+				coldDown2=3600
 				image_alpha=1
 			}
 		}

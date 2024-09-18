@@ -7,10 +7,13 @@ if(obj_pause.stop==0){
 		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
 		posionTime-=1
 	}
+	if(summonFieldTime>0) summonFieldTime-=1
+	if(soulTime>0) soulTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
+		if(instance_exists(obj_summoner)) obj_summoner.soul+=soul
 		score+=2
 		instance_destroy()
 	}
@@ -27,7 +30,7 @@ if(obj_pause.stop==0){
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<25){
 			if(player.d==0){
-				player.hp-=5
+				player.hp-=obj_calculation.desertEnemyDamage
 				player.d=60
 			}
 		}
@@ -38,7 +41,7 @@ if(obj_pause.stop==0){
 	else{
 		if(distance_to_point(player.x,player.y)<25){
 			if(player.d==0){
-				player.hp-=5
+				player.hp-=obj_calculation.desertEnemyDamage
 				player.d=60
 			}
 		}
@@ -88,11 +91,11 @@ if(obj_pause.stop==0){
 		}
 		else if(angry=false){
 			image_blend=c_ltgray
-			speed=2
+			speed=2-(soulTime>0?1:0)
 		}
 		else{
 			image_blend=c_fuchsia
-			speed=3
+			speed=3-(soulTime>0?1:0)
 		}
 	}
 }

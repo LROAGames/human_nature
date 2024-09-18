@@ -12,7 +12,7 @@ if(obj_pause.stop=0){
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<1){
 			if(player.c==0){
-				player.hp-=30
+				player.hp-=obj_calculation.enemyBallBossDamage
 				player.c=60
 			}
 		}
@@ -20,7 +20,7 @@ if(obj_pause.stop=0){
 	else{
 		if(distance_to_point(player.x,player.y)<1){
 			if(player.c==0){
-				player.hp-=30
+				player.hp-=obj_calculation.enemyBallBossDamage
 				player.c=60
 			}
 		}
@@ -37,10 +37,12 @@ if(obj_pause.stop=0){
 	if(b>0) b-=1
 	if(c>0) c-=1
 	if(d>0) d-=1
+	if(e>0) e-=1
 	if(posionTime>0){
 		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
 		posionTime-=1
 	}
+	if(summonFieldTime>0) summonFieldTime-=1
 	if(lightTime>0) lightTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0){
@@ -79,7 +81,7 @@ if(obj_pause.stop=0){
 			image_blend=c_white
 			speed=1.5
 		}
-		if(alarm[0]<90||alarm[0]>1050){
+		if(alarm[0]<90||alarm[0]>1710){
 			direction+=6
 			image_angle = direction
 		}

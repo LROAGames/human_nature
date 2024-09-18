@@ -9,10 +9,15 @@ if(obj_pause.stop==0){
 		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
 		posionTime-=1
 	}
+	if(summonFieldTime>0) summonFieldTime-=1
+	if(soulTime>0) soulTime-=1
 	if(iceTime>0) iceTime-=1
 	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
+		if(instance_exists(obj_summoner)){
+			obj_summoner.soul+=soul
+		}
 		score+=1
 		instance_destroy()
 	}
@@ -55,12 +60,12 @@ if(obj_pause.stop==0){
 	}
 	else{
 		image_blend=c_white
-		speed=2
+		speed=2-(soulTime>0?1:0)
 	}
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<25){
 			if(player.a==0){
-				player.hp-=10
+				player.hp-=obj_calculation.enemyBallDamage
 				player.a=60
 			}
 		}
@@ -68,7 +73,7 @@ if(obj_pause.stop==0){
 	else{
 		if(distance_to_point(player.x,player.y)<25){
 			if(player.a==0){
-				player.hp-=10
+				player.hp-=obj_calculation.enemyBallDamage
 				player.a=60
 			}
 		}
@@ -85,13 +90,12 @@ if(obj_pause.stop==0){
 			}
 		}
 		if(cd==0){
-			for(var i=0;i<6;i+=1){
-				with(instance_create_depth(x,y,0,obj_enemyBullet_redyy)){
-					speed=4
-					direction=other.angel
+			for(var i=0;i<3;i+=1){
+				with(instance_create_depth(x,y,0,obj_enemyBulletRedyy)){
+					speed=6
+					direction=other.direction+i*120
 					image_angle=direction
 				}
-				angel=(angel+60)%360
 			}
 			cd=300
 		}

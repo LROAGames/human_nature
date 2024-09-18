@@ -4,10 +4,11 @@ player=obj_chooseRole.player
 if(obj_pause.stop=0){
 	depth=-y
 	speed=6
+	image_blend=c_dkgray
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<50){
 			if(player.m==0){
-				player.hp-=5
+				player.hp-=obj_calculation.seaBossBulletDamage
 				player.m=60
 			}
 		}
@@ -15,7 +16,7 @@ if(obj_pause.stop=0){
 	else{
 		if(distance_to_point(player.x,player.y)<50){
 			if(player.m==0){
-				player.hp-=5
+				player.hp-=obj_calculation.seaBossBulletDamage
 				player.m=60
 			}
 		}

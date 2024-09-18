@@ -3,8 +3,6 @@
 attackTime=0
 num=0
 if(num==0) mode="heal"//posion
-alarm[0]=600
-if(num==0) alarm[0]=0
 xx=0
 yy=0
 flag=0

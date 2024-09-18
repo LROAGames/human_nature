@@ -14,7 +14,7 @@ if(obj_pause.stop==0){
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<30&&flag==1){
 			if(player.o==0){
-				player.hp-=20
+				player.hp-=obj_calculation.bossCannonDamage
 				player.o=60
 			}
 		}
@@ -22,7 +22,7 @@ if(obj_pause.stop==0){
 	else{
 		if(distance_to_point(player.x,player.y)<30&&flag==1){
 			if(player.o==0){
-				player.hp-=20
+				player.hp-=obj_calculation.bossCannonDamage
 				player.o=60
 			}
 		}

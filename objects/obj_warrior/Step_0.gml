@@ -1,5 +1,6 @@
 
-//summoner
+//warrior
+event_inherited();
 if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
@@ -77,26 +78,15 @@ else{
 			if(preHp<=0){
 				if(revive==0) game_restart()
 				else{
-					hp=60
-					preHp=60
-					energy=100
+					hp=maxHp
+					preHp=maxHp
+					energy=maxEnergy
 					revive=0
 					with(instance_create_depth(x,y,-999999999,obj_defenceField)){
 						alarm[0]=360
 					}
 				}
 			}
-			if(a>0) a-=1
-			if(b>0) b-=1
-			if(c>0) c-=1
-			if(d>0) d-=1
-			if(e>0) e-=1
-			if(f>0) f-=1
-			if(g>0) g-=1
-			if(m>0) m-=1
-			if(n>0) n-=1
-			if(o>0) o-=1
-			if(q>0) q-=1
 			if(reboundTime>0){
 				reboundTime-=1
 				image_blend=c_black
@@ -114,10 +104,13 @@ else{
 				if(fieldTime>0||angry==1) spd=5
 				else spd=4
 			}
+			else if(b<0){
+				spd=2
+			}
 			else{
 				spd=6
 			}
-			if(energy<100||revive==0){
+			if(energy<maxEnergy||revive==0){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60&&revive==1){
 					energy+=1
@@ -134,12 +127,12 @@ else{
 			}
 			else angry=0
 			if(energy<0) energy=0
-			if(energy>100) energy=100
+			if(energy>maxEnergy) energy=maxEnergy
 			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(reboundColdDown>0) reboundColdDown-=1
-			if(hp>60&&angry==0) hp=60
+			if(hp>maxHp&&angry==0) hp=maxHp
 			if(mouse_check_button(mb_left)&&energy>=0.5&&obj_shield.attackTime<=-15){
 				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
 					if(1<=other.p&&other.p<2){
@@ -181,7 +174,7 @@ else{
 			}
 			if(mouse_check_button_pressed(mb_right)&&energy>=12&&coldDown<=0){
 				energy-=12
-				coldDown=2100
+				coldDown=1080
 				with(instance_create_depth(x,y,-999999999,obj_defenceField)){
 					alarm[0]=240
 				}
@@ -196,7 +189,7 @@ else{
 				hp+=15
 				coldDown2=5400
 				angry=1
-				angryTime=1080
+				angryTime=1200
 			}
 		}
 		else{

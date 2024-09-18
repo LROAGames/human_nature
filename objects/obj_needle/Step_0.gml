@@ -29,7 +29,7 @@ else{
 				if(alarm[0]>0&&attackTime<-9){
 					attackTime=6
 				}
-				if(num>0&&alarm[0]<=0){
+				if(num<8&&num>0&&alarm[0]<=0){
 					with(instance_create_depth(x,y,1,obj_darkHole)){
 						direction=other.direction
 						image_angle=direction
@@ -38,14 +38,15 @@ else{
 				}
 				x=obj_doctor.x
 				y=obj_doctor.y
-				if(num>0) direction=point_direction(x,y,mouse_x,mouse_y)-120+num*30
+				if(num>0&&num<8) direction=point_direction(x,y,mouse_x,mouse_y)-120+num*30
+				else if(num>=8) direction=point_direction(x,y,mouse_x,mouse_y)+(num%2==0?(int64((num-6)/2)*20):(int64(-(num-7)/2)*20))
 				else direction=point_direction(x,y,mouse_x,mouse_y)
 				image_angle=direction
 				flag=0
 			}
 			else{
 				if(mode=="posion") speed=24
-				else if(mode=="heal") speed=12
+				else if(mode=="heal") speed=16
 			}
 			if(keyboard_check_pressed(vk_space)&&attackTime<=0&&obj_doctor.coldDown<=900){
 				if(mode=="posion") mode="heal"

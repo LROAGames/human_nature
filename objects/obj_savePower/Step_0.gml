@@ -47,6 +47,16 @@ if(obj_pause.stop==0){
 			instance_destroy()
 		}
 	}
+	else if(obj_chooseRole.role=="summoner"){
+		x=obj_summoner.x
+		y=obj_summoner.y
+		if(obj_summoner.p==0) direction+=6
+		else direction+=2
+		image_angle = direction
+		if(mouse_check_button_released(mb_left)){
+			instance_destroy()
+		}
+	}
 }
 else{
 	if(mouse_check_button_released(mb_left)){
