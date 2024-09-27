@@ -57,6 +57,17 @@ if(obj_pause.stop==0){
 			instance_destroy()
 		}
 	}
+	else if(obj_chooseRole.role=="acrobat"){
+		x=obj_acrobat.x
+		y=obj_acrobat.y
+		if(obj_acrobat.p==0) direction+=12
+		else if(obj_acrobat.p==1) direction+=8
+		else if(obj_acrobat.p==2) direction+=6
+		image_angle = direction
+		if(mouse_check_button_released(mb_left)){
+			instance_destroy()
+		}
+	}
 }
 else{
 	if(mouse_check_button_released(mb_left)){

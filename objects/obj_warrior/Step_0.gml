@@ -91,11 +91,23 @@ else{
 				reboundTime-=1
 				image_blend=c_black
 			}
-			else if(angry==1){
-				image_blend=c_yellow
-			}
 			else{
-				image_blend=c_white
+				if(reboundColdDown>0){
+					if(angry==1){
+						image_blend=c_olive
+					}
+					else{
+						image_blend=c_gray
+					}
+				}
+				else{
+					if(angry==1){
+						image_blend=c_yellow
+					}
+					else{
+						image_blend=c_white
+					}
+				}
 			}
 			if(fieldTime>0){
 				fieldTime-=1

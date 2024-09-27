@@ -169,7 +169,7 @@ else{
 			if(keyboard_check_pressed(ord("F"))&&shadowTime==0&&ninjaTime==0&&energy>=25&&coldDown2==0){
 				energy-=30
 				ninjaTime=600
-				coldDown2=3600
+				coldDown2=4200
 				image_alpha=1
 			}
 		}

@@ -60,8 +60,8 @@ if(obj_pause.stop=0){
 		speed=1
 	}
 	else{
-		if(room=room_sea) speed=3.5-(soulTime>0?1:0)
-		else speed=3-(soulTime>0?1:0)
+		if(room=room_sea) speed=3.5-(soulTime>0?1.75:0)
+		else speed=3-(soulTime>0?1.5:0)
 	}
 	direction = point_direction(x,y,player.x,player.y)
 	image_angle = direction

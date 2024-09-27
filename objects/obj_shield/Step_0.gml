@@ -8,12 +8,20 @@ else{
 	if(obj_chooseRole.role=="warrior"){
 		if(obj_pause.stop==0){
 			depth=-y
-			if(obj_warrior.reboundColdDown>0) image_alpha=0.75-obj_warrior.reboundColdDown/1000
-			else image_alpha=1
-			if(obj_warrior.angry==1) image_blend=c_yellow
-			else if(attackTime>0) image_blend=c_dkgrey
-			else if(attackTime>-15&&attackTime<=0) image_blend=c_ltgray
-			else image_blend=c_white
+			if(obj_warrior.reboundColdDown>0){
+				image_alpha=0.75-obj_warrior.reboundColdDown/1000
+				if(obj_warrior.angry==1) image_blend=c_olive
+				else if(attackTime>0) image_blend=c_black
+				else if(attackTime>-15&&attackTime<=0) image_blend=c_dkgray
+				else image_blend=c_ltgray
+			}
+			else{
+				image_alpha=1
+				if(obj_warrior.angry==1) image_blend=c_yellow
+				else if(attackTime>0) image_blend=c_dkgrey
+				else if(attackTime>-15&&attackTime<=0) image_blend=c_ltgray
+				else image_blend=c_white
+			}
 			if(attackTime<=0){
 				move=0
 			}

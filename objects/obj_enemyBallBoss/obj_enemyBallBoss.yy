@@ -27,7 +27,10 @@
     "name":"物体",
     "path":"folders/物体.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_bossMode",
+    "path":"objects/obj_bossMode/obj_bossMode.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

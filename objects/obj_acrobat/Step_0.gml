@@ -59,7 +59,7 @@ else{
 				game_restart()
 			}
 			if(b==0){
-				spd=4
+				spd=4.5
 			}
 			else if(b<0){
 				spd=2
@@ -84,12 +84,52 @@ else{
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(hp>maxHp) hp=maxHp
-			if(mouse_check_button(mb_left)){
-				with(instance_create_depth(x,y,0,obj_multiShot)){
-					magic=1
-					multicnt=2
-					direction=point_direction(x,y,mouse_x,mouse_y)
+			if(mouse_check_button(mb_left)&&energy>=1){
+				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
+					if(1<=other.p&&other.p<2){
+						image_blend=c_yellow
+					}
+					else if(2<=other.p){
+						image_blend=c_red
+					}
+					else{
+						image_blend=c_white
+					}
 				}
+				h+=1
+				if(h>30+p*15){
+					if(p>=3) p=3
+					else{
+						if(energy>=1+p*0.5){
+							energy-=1+p*0.5
+							p+=1
+						}
+					}
+					h=0
+				}
+			}
+			if(mouse_check_button_released(mb_left)){
+				if(p==0&&energy>=0.5){
+					energy-=0.5
+					with(instance_create_depth(x,y,0,obj_multiShot)){
+						magic=1
+						multicnt=3
+						direction=point_direction(x,y,mouse_x,mouse_y)
+					}
+				}
+				else{
+					for(var i=0;i<1+p*2;i+=1){
+						with(instance_create_depth(x,y,0,obj_multiShot)){
+							time=other.p*30+30
+							alarm[0]=other.p*30+30
+							magic=other.p
+							multicnt=2
+							direction=point_direction(x,y,mouse_x,mouse_y)-other.p*4+i*4
+						}
+					}
+				}
+				h=0
+				p=0
 			}
 		}
 		else{

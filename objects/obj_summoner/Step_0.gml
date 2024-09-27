@@ -9,7 +9,7 @@ else{
 	if(obj_chooseRole.role=="summoner"){
 		if(obj_pause.stop==0){
 			depth=-y
-			if(angry==1) image_blend=c_red
+			if(angry==1) image_blend=c_maroon
 			else image_blend=c_dkgray
 			if(beatenEffectTime==0){
 				image_alpha=1
@@ -20,7 +20,9 @@ else{
 					var v=preHp-hp
 					preHp=hp+v/2*summonedAnimalNumber
 					hp=preHp
-					obj_summonedAnimal.alarm[0]-=v/2*6
+					with(obj_summonedAnimal){
+						if(level<3) alarm[0]-=v/2*6
+					}
 				}
 				else preHp=hp
 			}
@@ -98,7 +100,7 @@ else{
 			if(hp>maxHp) hp=maxHp
 			if(soul>preSoul){
 				energy+=1
-				hp+=0.2
+				hp+=0.1
 				for(var i=1;i<=soul;i+=1){
 					with(instance_create_depth(x,y,0,obj_soul)){
 						direction=i*360/other.maxSoul

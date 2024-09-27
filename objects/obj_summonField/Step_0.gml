@@ -8,8 +8,8 @@ if(obj_pause.stop==0){
 	}
 	else{
 		a=0
-		if(obj_summoner.hp>0.2){
-			obj_summoner.hp-=0.2
+		if(obj_summoner.hp>0.1){
+			obj_summoner.hp-=0.1
 			energy+=1
 		}
 	}

@@ -1,16 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 player=obj_chooseRole.player
+event_inherited();
 if(obj_pause.stop==0){
 	depth=-y
-	if(posionTime>0){
-		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
-		posionTime-=1
-	}
-	if(summonFieldTime>0) summonFieldTime-=1
-	if(soulTime>0) soulTime-=1
-	if(iceTime>0) iceTime-=1
-	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
 		if(instance_exists(obj_summoner)) obj_summoner.soul+=soul
@@ -95,7 +88,7 @@ if(obj_pause.stop==0){
 		}
 		else{
 			image_blend=c_fuchsia
-			speed=3-(soulTime>0?1:0)
+			speed=3-(soulTime>0?1.5:0)
 		}
 	}
 }

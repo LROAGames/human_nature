@@ -4,6 +4,6 @@ level=0
 beatenEffectTime=0
 attackSpeed=45
 angry=0
-alarm[0]=900
+alarm[0]=1800
 direction=point_direction(x,y,obj_summoner.x-150+irandom(300),obj_summoner.y-150+irandom(300))
 speed=5

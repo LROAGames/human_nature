@@ -1,18 +1,11 @@
 // 你可以在此编辑器中写入代码
+event_inherited();
 player=obj_chooseRole.player
 if(obj_pause.stop==0){
 	depth=-y
 	image_angle=direction
 	image_alpha=max(hp/maxHp,0.25)
 	direction = point_direction(x,y,player.x,player.y)
-	if(posionTime>0){
-		if(posionTime%30==0) hp-=max(1,obj_calculation.posionDamage-defence)
-		posionTime-=1
-	}
-	if(summonFieldTime>0) summonFieldTime-=1
-	if(soulTime>0) soulTime-=1
-	if(iceTime>0) iceTime-=1
-	if(iceTime==0) iceLever=0
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
 		if(instance_exists(obj_summoner)){

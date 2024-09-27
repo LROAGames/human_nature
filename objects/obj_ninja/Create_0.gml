@@ -3,7 +3,7 @@
 event_inherited();
 spd=4
 coldDown=0//900
-coldDown2=0//3600
+coldDown2=0//4200
 hp=100
 preHp=100
 maxHp=100

@@ -4,6 +4,6 @@ if(obj_pause.stop==0){
 	if(summonFieldTime==0){
 		hp-=1
 		obj_summonField.energy+=1
-		summonFieldTime=30
+		summonFieldTime=15
 	}
 }

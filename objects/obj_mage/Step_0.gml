@@ -184,8 +184,8 @@ else{
 							if(irandom(10)<2){
 								p+=1
 							}
-							else if(energy>=2){
-								energy-=2
+							else if(energy>=2.5){
+								energy-=2.5
 								p+=1
 							}
 						}
@@ -215,8 +215,8 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(20-(other.p-3)*(other.p-3))*60
-							a=(20-(other.p-3)*(other.p-3))*60
+							alarm[0]=(15-(other.p-3)*(other.p-3))*60
+							a=(15-(other.p-3)*(other.p-3))*60
 						}
 					}
 				}
@@ -238,8 +238,8 @@ else{
 					for(var i=0;i<p;i++){
 						with(instance_create_depth(x,y,-50,obj_lightStar)){
 							direction=i*120
-							alarm[0]=(20-(other.p-3)*(other.p-3))*60
-							a=(20-(other.p-3)*(other.p-3))*60
+							alarm[0]=(15-(other.p-3)*(other.p-3))*60
+							a=(15-(other.p-3)*(other.p-3))*60
 						}
 					}
 					iceTime=p*30
