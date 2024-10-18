@@ -1,7 +1,7 @@
 
 //ninja
 event_inherited();
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -33,7 +33,7 @@ else{
 				}
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
+				beatenEffectTime=-30
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
@@ -76,16 +76,16 @@ else{
 					sprite_index=spr_player_cowboy
 				}
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(preHp<=0) game_restart()
 			if(energy<maxEnergy){
 				energyRecoverTime+=1
 				if(energyRecoverTime>=60){
 					if(angry==0){
-						if(energy<60) energy+=1.5
+						if(energy<maxEnergy/5*3) energy+=1.5
 						else energy+=1
 					}
 					else energy+=0.5
@@ -94,7 +94,6 @@ else{
 			}
 			if(energy<0) energy=0
 			if(energy>maxEnergy) energy=maxEnergy
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(shadowTime>0) shadowTime-=1
@@ -114,16 +113,16 @@ else{
 					spd=6
 					image_blend=c_black
 				}
-				else if(energy>=60){
-					spd=5.5
+				else if(energy>=maxEnergy/5*3){
+					spd=5
 					image_blend=c_yellow
 				}
-				else if(30<=energy&&energy<60){
-					spd=5
+				else if(maxEnergy/5*1<=energy&&energy<maxEnergy/5*3){
+					spd=4.5
 					image_blend=c_white
 				}
 				else{
-					spd=4.5
+					spd=4
 					image_blend=c_grey
 				}
 			}
@@ -133,7 +132,7 @@ else{
 			else{
 				spd=6
 			}
-			if(mouse_check_button_pressed(mb_left)&&shadowTime<=0&&energy>=1){
+			if(mouse_check_button_pressed(mb_left)&&shadowTime<=0&&energy>=0.5){
 				energy-=1
 				obj_knife.attackTime=30
 				shadowTime=60

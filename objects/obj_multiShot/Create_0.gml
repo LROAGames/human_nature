@@ -5,4 +5,4 @@ alarm[0]=45
 image_alpha=1
 player=obj_chooseRole.player
 magic=1
-multicnt=3
+multicnt=2

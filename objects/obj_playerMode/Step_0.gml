@@ -1,6 +1,6 @@
 
 //summoner
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -23,6 +23,12 @@ else{
 		if(n>0) n-=1
 		if(o>0) o-=1
 		if(q>0) q-=1
+		if(beatenEffectTime>0) beatenEffectTime-=1
+		if(beatenEffectTime<0) beatenEffectTime+=1
+		if(burnTime>0){
+			if(burnTime%60==0) hp-=obj_calculation.burnDamage
+			burnTime-=1
+		}
 	}
 	else{
 		speed=0

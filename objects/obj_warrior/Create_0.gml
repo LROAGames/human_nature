@@ -18,3 +18,4 @@ revive=1
 fieldTime=0
 reboundTime=0
 reboundColdDown=0
+percentDefence=0.1

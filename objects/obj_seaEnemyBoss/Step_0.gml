@@ -56,17 +56,17 @@ if(obj_pause.stop=0){
 		image_angle=direction
 		if(obj_chooseRole.role=="ninja"){
 			if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<10){
-				if(player.g==0){
+				if(player.c==0){
 					player.hp-=obj_calculation.seaEnemyBossDamage
-					player.g=60
+					player.c=60
 				}
 			}
 		}
 		else{
 			if(distance_to_point(player.x,player.y)<10){
-				if(player.g==0){
+				if(player.c==0){
 					player.hp-=obj_calculation.seaEnemyBossDamage
-					player.g=60
+					player.c=60
 				}
 			}
 		}
@@ -75,6 +75,13 @@ if(obj_pause.stop=0){
 		}
 		if(360<=alarm[3]&&alarm[3]<=720){
 			speed=1
+			if(alarm[3]%180==0){
+				instance_create_depth(x,y,-y,obj_wall)
+				with(instance_create_depth(x,y,0,obj_seaBossBullet)){
+					direction = point_direction(x,y,player.x,player.y)
+					image_angle=direction
+				}
+			}
 			if(instance_exists(obj_bossCannon)){
 				obj_bossCannon.flag=0
 			}
@@ -101,20 +108,20 @@ if(obj_pause.stop=0){
 			if(alarm[1]<150&&alarm[1]%60==0){
 				ff2=(ff2+1)%4 
 				if(ff2==1){
-					x=player.x-1000+random(200)
-					y=player.y-1000+random(200)	
+					x=player.x-1200+random(400)
+					y=player.y-1200+random(400)	
 				}
 				else if(ff2==2){
-					x=player.x+1000-random(200)
-					y=player.y+1000-random(200)	
+					x=player.x+1200-random(400)
+					y=player.y+1200-random(400)	
 				}
 				else if(ff2==3){
-					x=player.x-1000+random(200)
-					y=player.y+1000-random(200)	
+					x=player.x-1200+random(400)
+					y=player.y+1200-random(400)	
 				}
 				else{
-					x=player.x+1000-random(200)
-					y=player.y-1000+random(200)	
+					x=player.x+1200-random(400)
+					y=player.y-1200+random(400)	
 				}
 				for(var i=0;i<36;i+=1){
 					with(instance_create_depth(x,y,0,obj_seaBossBullet)){

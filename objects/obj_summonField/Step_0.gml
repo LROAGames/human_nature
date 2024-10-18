@@ -3,14 +3,14 @@
 if(obj_pause.stop==0){
 	x=obj_summoner.x
 	y=obj_summoner.y
-	if(a<15){
+	if(a<60){
 		a+=1
 	}
 	else{
 		a=0
-		if(obj_summoner.hp>0.1){
-			obj_summoner.hp-=0.1
-			energy+=1
+		if(obj_summoner.hp>0.5){
+			obj_summoner.hp-=0.5
+			energy+=5
 		}
 	}
 	image_alpha=energy/150+0.2

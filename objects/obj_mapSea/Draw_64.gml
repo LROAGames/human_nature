@@ -23,7 +23,7 @@ draw_text(60,70,int64((player.coldDown2+59)/60))
 draw_text(10,100,"score:")
 draw_text(90,100,score)
 draw_text(10,160,"O2:")
-draw_text(50,160,o2)
+draw_text(50,160,int64((o2+59)/60))
 if(a=1){
 	draw_text(713,40,"BossHP:")
 	draw_text(803,40,obj_seaEnemyBoss.hp)

@@ -6,35 +6,9 @@ if(obj_pause.stop=0){
 	image_angle=direction
 	speed=16
 	image_blend=c_fuchsia
-	if(distance_to_object(obj_tree)<1){
+	if(distance_to_object(obj_barrier)<1){
 		if(magic==0) direction=irandom(360)
 		else alarm[0]=3
-	}
-	if(distance_to_object(obj_cactus)<1){
-		if(magic==0) direction=irandom(360)
-		else alarm[0]=3
-	}
-	if(distance_to_object(obj_bigRock)<1){
-		if(magic==0) direction=irandom(360)
-		else alarm[0]=3
-	}
-	if(instance_exists(obj_enemyBallBoss)){
-		if(distance_to_point(obj_enemyBallBoss.x,obj_enemyBallBoss.y)<150){
-			obj_enemyBallBoss.hp-=max(1,obj_calculation.multiShotDamage-obj_enemyBallBoss.defence)
-			instance_destroy()
-		}
-	}
-	if(instance_exists(obj_desertEnemyBoss)){
-		if(distance_to_point(obj_desertEnemyBoss.x,obj_desertEnemyBoss.y)<150){
-			obj_desertEnemyBoss.hp-=max(1,obj_calculation.multiShotDamage-obj_desertEnemyBoss.defence)
-			instance_destroy()
-		}
-	}
-	if(instance_exists(obj_seaEnemyBoss)){
-		if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<90){
-			obj_seaEnemyBoss.hp-=max(1,obj_calculation.multiShotDamage-obj_seaEnemyBoss.defence)
-			instance_destroy()
-		}
 	}
 	if(y>(player.y+camera_get_view_height(0))) instance_destroy()
 	if(y<(player.y-camera_get_view_height(0))) instance_destroy()

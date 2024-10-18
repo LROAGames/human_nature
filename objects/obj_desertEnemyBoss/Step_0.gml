@@ -11,17 +11,17 @@ if(obj_pause.stop=0){
 	}
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<1){
-			if(player.e==0){
+			if(player.c==0){
 				player.hp-=obj_calculation.desertEnemyBossDamage
-				player.e=60
+				player.c=60
 			}
 		}
 	}
 	else{
 		if(distance_to_point(player.x,player.y)<1){
-			if(player.e==0){
+			if(player.c==0){
 				player.hp-=obj_calculation.desertEnemyBossDamage
-				player.e=60
+				player.c=60
 			}
 		}
 	}

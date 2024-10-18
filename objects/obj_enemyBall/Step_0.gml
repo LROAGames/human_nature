@@ -52,7 +52,7 @@ if(obj_pause.stop==0){
 		speed=1
 	}
 	else{
-		image_blend=c_white
+		image_blend=c_green
 		speed=2-(soulTime>0?1:0)
 	}
 	if(obj_chooseRole.role=="ninja"){
@@ -72,13 +72,9 @@ if(obj_pause.stop==0){
 		}
 	}
 	if(room==room_sea){
-		if(obj_mapSea.a==2){
-			x=obj_mapSea.xx
-			y=obj_mapSea.yy
-		}
 		if(instance_exists(obj_seaEnemyBoss)){
 			if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<100){
-				obj_seaEnemyBoss.hp+=2
+				obj_seaEnemyBoss.hp+=5
 				instance_destroy()
 			}
 		}

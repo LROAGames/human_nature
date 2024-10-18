@@ -3,9 +3,9 @@
 player=obj_chooseRole.player
 a=0
 score=0
-alarm[0]=1
-alarm[1]=1
-alarm[2]=1
+alarm[0]=120
+alarm[1]=120
+alarm[2]=120
 audio_stop_all()
 audio_play_sound(snd_bgm,0,true)
 for(var i=0;i<4000;i+=1){

@@ -1,7 +1,7 @@
 
 //doctor
 event_inherited();
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -22,29 +22,37 @@ else{
 				hpReduceTime-=1
 			}
 			else{
-				if(reduceHp>0){
-					reduceHp-=0.1
-					hp-=0.1
-					preHp-=0.1
-					hpReduceTime=2
+				if(reduceHp>0) beatenEffectTime=30
+				if(reduceHp>2.5){
+					reduceHp-=2.5
+					hp-=2.5
+					preHp-=2.5
+					hpReduceTime=60
+				}
+				else{
+					hp-=reduceHp
+					preHp-=reduceHp
+					reduceHp=0
+					hpReduceTime=60
 				}
 			}
 			if(hp<preHp){
 				beatenEffectTime=30
-				if(preHp-hp>=1){
-					reduceHp+=preHp-hp-1
-					hp=preHp-1
+				if(preHp-hp>=2.5){
+					reduceHp+=preHp-hp-2.5
+					hp=preHp-2.5
 					preHp=hp
+					hpReduceTime=60
 				}
 				else{
-					reduceHp+=preHp-hp-0.1
-					hp=preHp-0.1
 					preHp=hp
 				}
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
-				preHp=hp
+				beatenEffectTime=-30
+				if(preHp<=maxHp/5*2)preHp=hp+0.1
+				else preHp=hp
+				hp=preHp
 			}
 			if(beatenEffectTime>15){
 				image_alpha-=0.02
@@ -77,10 +85,10 @@ else{
 			else{
 				sprite_index=spr_player_cowboy
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(preHp<=0){
 				game_restart()
 			}
@@ -101,7 +109,6 @@ else{
 			else{
 				coldDown2=60
 			}
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(hp>=maxHp){

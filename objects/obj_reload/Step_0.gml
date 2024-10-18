@@ -10,7 +10,7 @@ else if(obj_cowboy.angry==1){
 	direction+=6
 }
 image_angle = direction
-if(keyboard_check_released(vk_space)){
+if(keyboard_check_released(vk_space)||obj_cowboy.bullet==obj_cowboy.maxBullet){
 	if(obj_cowboy.angry==0){
 		if(obj_cowboy.bulletTime<120){
 			obj_cowboy.bulletTime=0

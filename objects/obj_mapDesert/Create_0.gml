@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 player=obj_chooseRole.player
-alarm[0]=1
-alarm[1]=1
-alarm[2]=1
+alarm[0]=120
+alarm[1]=120
+alarm[2]=120
 score=0
 a=0
 audio_stop_all()
@@ -21,5 +21,5 @@ for(var i=1;i<=2;i+=1){
 	}
 }
 for(var i=0;i<20000;i+=1){
-	instance_create_depth(irandom(room_width),irandom(room_height),3,obj_yellowDot)
+	instance_create_depth(irandom(room_width),irandom(room_height),51,obj_yellowDot)
 }

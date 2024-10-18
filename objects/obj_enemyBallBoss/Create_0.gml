@@ -3,7 +3,7 @@
 player=obj_chooseRole.player
 alarm[0]=1000
 alarm[1]=1000
-hp=2000
+hp=2000*obj_chooseDifficulty.difficulty
 defence=2
 lightTime=0
 iceLever=0

@@ -1,7 +1,7 @@
 
 //summoner
 event_inherited();
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -15,7 +15,7 @@ else{
 				image_alpha=1
 			}
 			if(hp<preHp){
-				beatenEffectTime=30
+				if(summonedAnimalNumber<2) beatenEffectTime=30
 				if(summonedAnimalNumber>0){
 					var v=preHp-hp
 					preHp=hp+v/2*summonedAnimalNumber
@@ -27,7 +27,7 @@ else{
 				else preHp=hp
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
+				beatenEffectTime=-30
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
@@ -61,10 +61,10 @@ else{
 			else{
 				sprite_index=spr_player_cowboy
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(preHp<=0){
 				game_restart()
 			}
@@ -86,7 +86,6 @@ else{
 			}
 			if(energy<0) energy=0
 			if(energy>maxEnergy-15*summonedAnimalNumber) energy=maxEnergy-15*summonedAnimalNumber
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown<780&&instance_exists(obj_summonedAnimal)) obj_summonedAnimal.attackSpeed=45
 			if(coldDown>=780){
@@ -97,7 +96,10 @@ else{
 			}
 			if(coldDown2>0) coldDown2-=1
 			if(attackTime>0) attackTime-=1
-			if(hp>maxHp) hp=maxHp
+			if(hp>=maxHp){
+				hp=maxHp
+				preHp=maxHp
+			}
 			if(soul>preSoul){
 				energy+=1
 				hp+=0.1

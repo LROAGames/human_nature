@@ -1,3 +1,4 @@
 /// @description 在此处插入描述 
 // 你可以在此编辑器中写入代码 
-alarm[1]=900
+if(room==room_volcano) alarm[1]=600
+else alarm[1]=900

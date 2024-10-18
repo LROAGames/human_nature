@@ -27,6 +27,7 @@ if(obj_pause.stop=0){
 	}
 	if(hp<=0){
 		hp=0
+		instance_create_depth(1024+irandom(room_width-2048),1024+irandom(room_height-2048),-100,obj_exit)
 		instance_create_depth(player.x,player.y,-100,obj_findExit)
 		for(var i=0;i<100;i+=1){
 			instance_create_depth(irandom(room_width),irandom(room_height),2,obj_speedEnemyBall)

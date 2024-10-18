@@ -16,6 +16,13 @@ if(obj_pause.stop=0){
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
 		if(instance_exists(obj_summoner)) obj_summoner.soul+=soul
+		while(gift>0){
+			gift-=1
+			var r=irandom(4)
+			if(r==0){
+				instance_create_depth(x-50+irandom(100),y-50+irandom(100),0,obj_medicine)
+			}
+		}
 		score+=10
 		instance_destroy()
 	}

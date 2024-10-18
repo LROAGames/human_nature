@@ -5,13 +5,21 @@ iceLever=0
 iceTime=0
 lightTime=0
 posionTime=0
-hp=5
-preHp=5
-maxHp=5
+if(room==room_volcano){
+	hp=10*obj_chooseDifficulty.difficulty
+	preHp=10*obj_chooseDifficulty.difficulty
+	maxHp=10*obj_chooseDifficulty.difficulty
+	alarm[1]=600
+}
+else{
+	hp=6*obj_chooseDifficulty.difficulty
+	preHp=6*obj_chooseDifficulty.difficulty
+	maxHp=6*obj_chooseDifficulty.difficulty
+	alarm[1]=900
+}
 defence=0
 beatenEffectTime=0
 soul=0
 soulTime=0
 summonFieldTime=0
 alarm[0]=10000
-alarm[1]=900

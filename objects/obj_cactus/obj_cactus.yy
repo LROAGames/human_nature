@@ -18,7 +18,10 @@
     "name":"物体",
     "path":"folders/物体.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_barrier",
+    "path":"objects/obj_barrier/obj_barrier.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

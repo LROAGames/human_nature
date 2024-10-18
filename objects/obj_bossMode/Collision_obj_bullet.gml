@@ -1,3 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-hp-=1
+/// @description 在此处插入描述 
+// 你可以在此编辑器中写入代码 
+hp-=max(1,obj_calculation.bulletDamage-defence)

@@ -1,7 +1,7 @@
 
 //warrior
 event_inherited();
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -12,7 +12,7 @@ else{
 			if(distance_to_object(obj_defenceField)<10){
 				if(fieldTime<=0){
 					hp+=1
-					fieldTime=60
+					fieldTime=75
 				}
 			}
 			if(beatenEffectTime==0){
@@ -25,19 +25,19 @@ else{
 					reboundColdDown=240
 					energy+=4
 					with(instance_create_depth(x,y,-999999999,obj_defenceField)){
-						alarm[0]=120
+						alarm[0]=60
 					}
 				}
 				else{
 					beatenEffectTime=30
 					var v=preHp-hp
-					if(angry==0) preHp=hp+v/5
+					if(angry==0) preHp=hp+v*percentDefence
 					else preHp=hp+v*4/5
 					hp=preHp
 				}
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
+				beatenEffectTime=-30
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
@@ -71,10 +71,10 @@ else{
 			else{
 				sprite_index=spr_player_cowboy
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(preHp<=0){
 				if(revive==0) game_restart()
 				else{
@@ -128,9 +128,10 @@ else{
 					energy+=1
 					energyRecoverTime=0
 				}
-				if(energyRecoverTime>=50&&revive==0){
-					hp+=0.2
-					energy+=1
+				if(energyRecoverTime>=90&&revive==0){
+					energy+=2
+					hp+=0.1
+					percentDefence=0.2
 					energyRecoverTime=0
 				}
 			}
@@ -140,11 +141,13 @@ else{
 			else angry=0
 			if(energy<0) energy=0
 			if(energy>maxEnergy) energy=maxEnergy
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(reboundColdDown>0) reboundColdDown-=1
-			if(hp>maxHp&&angry==0) hp=maxHp
+			if(hp>maxHp&&angry==0){
+				hp=maxHp
+				preHp=maxHp
+			}
 			if(mouse_check_button(mb_left)&&energy>=0.5&&obj_shield.attackTime<=-15){
 				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
 					if(1<=other.p&&other.p<2){
@@ -184,7 +187,7 @@ else{
 				h=0
 				p=0
 			}
-			if(mouse_check_button_pressed(mb_right)&&energy>=12&&coldDown<=0){
+			if(mouse_check_button_pressed(mb_right)&&energy>=10&&coldDown<=0){
 				energy-=12
 				coldDown=1080
 				with(instance_create_depth(x,y,-999999999,obj_defenceField)){
@@ -197,8 +200,8 @@ else{
 				reboundColdDown=480
 			}
 			if(keyboard_check_pressed(ord("F"))&&coldDown2<=0&&obj_shield.attackTime<=-15&&energy>=25){
-				energy-=25
-				hp+=15
+				energy-=30
+				hp+=10
 				coldDown2=5400
 				angry=1
 				angryTime=1200

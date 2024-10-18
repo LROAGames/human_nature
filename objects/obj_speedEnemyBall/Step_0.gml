@@ -4,9 +4,11 @@ player=obj_chooseRole.player
 event_inherited();
 if(obj_pause.stop=0){
 	depth=-y
-	image_blend=c_yellow
+	if(room==room_volcano) image_blend=c_fuchsia
+	else image_blend=c_yellow
 	if(hp>maxHp) hp=maxHp
 	if(preHp<=0){
+		if(room==room_volcano) instance_create_depth(x,y,0,obj_lava)
 		if(instance_exists(obj_summoner)) obj_summoner.soul+=soul
 		score+=1
 		instance_destroy()
@@ -27,6 +29,12 @@ if(obj_pause.stop=0){
 			iceTime=300
 		}
 	}
+	if(instance_exists(obj_seaEnemyBoss)){
+			if(distance_to_point(obj_seaEnemyBoss.x,obj_seaEnemyBoss.y)<100){
+				obj_seaEnemyBoss.hp+=5
+				instance_destroy()
+			}
+		}
 	if(lightTime>0){
 		lightTime-=1
 		speed=-8
@@ -51,7 +59,7 @@ if(obj_pause.stop=0){
 		image_blend=c_aqua
 		speed=1
 	}
-	else if(alarm[1]>180) speed=3-(soulTime>0?1.5:0)
+	else if(alarm[1]>180+(room==room_volcano?120:0)) speed=3-(soulTime>0?1.5:0)
 	else speed=6-(soulTime>0?3:0)
 	direction = point_direction(x,y,player.x,player.y)
 	image_angle = direction

@@ -9,7 +9,7 @@ if(obj_pause.stop==0){
 	}
 	else{
 		image_blend=c_white
-		image_alpha=0.25
+		image_alpha=0.1
 	}
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_point(obj_ninjaRealShadow.x,obj_ninjaRealShadow.y)<30&&flag==1){

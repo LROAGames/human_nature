@@ -1,7 +1,7 @@
 
 //cowboy
 event_inherited();
-if(room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_chooseRole||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_settings||room==room_help||room==room_chooseMap||room==room_chooseRole||room==room_win){
 	visible=false
 }
 else{
@@ -37,7 +37,7 @@ else{
 				preHp=hp
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
+				beatenEffectTime=-30
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
@@ -71,12 +71,11 @@ else{
 			else{
 				sprite_index=spr_player_cowboy
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(hp<=0) game_restart()
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
 			if(angryTime>0){
@@ -98,9 +97,9 @@ else{
 			}
 			if(fireTime>0){
 				if(fireTime%10==0){
-					for(var i=0;i<45;i+=1){
+					for(var i=0;i<25;i+=1){
 						with(instance_create_depth(x,y,0,obj_shot)){
-							direction=point_direction(x,y,mouse_x,mouse_y)-90+i*4
+							direction=point_direction(x,y,mouse_x,mouse_y)-75+i*6
 							image_angle=direction
 						}
 					}
@@ -108,11 +107,11 @@ else{
 				fireTime-=1
 			}
 			if(mouse_check_button_pressed(mb_right)&&coldDown<=0){
-				if(hp<=1){
+				if(hp<=2){
 					hp=0.1
 				}
 				else{
-					hp-=1
+					hp-=2
 				}
 				fireTime=20
 				coldDown=960
@@ -172,34 +171,23 @@ else{
 				p=0
 			}
 			if(h==0){
-				if(keyboard_check(vk_space)){
+				if(keyboard_check(vk_space)&&bullet<maxBullet){
 					instance_create_depth(x,y,-999999999,obj_reload)
 					spd=2
 					bulletTime+=1
 					if(angry==0){
 						if(bulletTime>120){
-							bulletTime=120
+							bullet=maxBullet
 						}
 					}
 					else if(angry==1){
 						if(bulletTime>60){
-							bulletTime=60
+							bullet=maxBullet
 						}
 					}
 				}
-				if(keyboard_check_released(vk_space)){
-					if(angry==0){
-						if(bulletTime>=120){
-							bullet=maxBullet
-							bulletTime=0
-						}
-					}
-					else if(angry==1){
-						if(bulletTime>=60){
-							bullet=maxBullet
-							bulletTime=0
-						}
-					}
+				if(keyboard_check_released(vk_space)||bullet==maxBullet){
+						bulletTime=0
 				}
 			}
 			if(h==0&&bulletTime==0){

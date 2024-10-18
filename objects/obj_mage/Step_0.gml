@@ -1,7 +1,7 @@
 
 //mage
 event_inherited();
-if(room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
+if(room==room_chooseDifficulty||room==room_title||room==room_chooseRole||room==room_settings||room==room_help||room==room_chooseMap||room==room_win){
 	visible=false
 }
 else{
@@ -40,7 +40,7 @@ else{
 				}
 			}
 			else if(hp>preHp){
-				beatenEffectTime=30
+				beatenEffectTime=-30
 				preHp=hp
 			}
 			if(beatenEffectTime>15){
@@ -80,10 +80,10 @@ else{
 					sprite_index=spr_player_cowboy
 				}
 			}
-			if(y>room_height) y=room_height
-			if(y<0) y=0
-			if(x>room_width) x=room_width
-			if(x<0) x=0
+			if(y>room_height-768/2) y=room_height-768/2
+			if(y<768/2) y=768/2
+			if(x>room_width-1366/2) x=room_width-1366/2
+			if(x<1366/2) x=1366/2
 			if(preHp<=0) game_restart()
 			if(angryTime>0) angryTime-=1
 			if(lightTime>0) lightTime-=1
@@ -103,7 +103,6 @@ else{
 						}
 						if(obj_staff.sprId==3||obj_staff.sprId==4){
 							with(instance_create_depth(obj_staff.x,obj_staff.y,0,obj_shot)){
-								//magic=2
 								speed=16
 								direction=point_direction(x,y,mouse_x,mouse_y)+i*24
 								image_angle=direction
@@ -160,10 +159,12 @@ else{
 			if(hp<=30) magicTime=60
 			if(energy<0) energy=0
 			if(energy>maxEnergy) energy=maxEnergy
-			if(beatenEffectTime>0) beatenEffectTime-=1
 			if(coldDown>0) coldDown-=1
 			if(coldDown2>0) coldDown2-=1
-			if(hp>maxHp) hp=maxHp
+			if(hp>=maxHp){
+				hp=maxHp
+				preHp=maxHp
+			}
 			if(mouse_check_button(mb_left)&&energy>=2&&obj_staff.sprId!=1){
 				with(instance_create_depth(x,y,-999999999-h*p*100,obj_savePower)){
 					if(1<=other.p&&other.p<2){

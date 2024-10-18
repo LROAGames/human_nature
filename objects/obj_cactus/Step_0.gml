@@ -2,6 +2,7 @@
 // You can write your code in this editor
 if(obj_pause.stop=0){
 	depth=-y
+	image_alpha=0.8
 	if(obj_chooseRole.role=="ninja"){
 		if(distance_to_object(obj_knife)<30&&obj_ninja.angry==1&&obj_knife.attackTime>0){
 			obj_knife.attackTime=30
